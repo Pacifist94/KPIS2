@@ -1,0 +1,991 @@
+
+<html>
+    <head>
+        
+        <!-- outlined libraty -->
+
+
+        <title>KPIs</title>
+        
+
+
+
+        <style> 
+            /*
+            /*Set Default 0 margin*/ 
+            html,body{ 
+                margin:0; 
+            } 
+
+            div.divWrap{ 
+                background-color: #000000; 
+                opacity:0.85; 
+                width: 100%; 
+                height:1300px; 
+            } 
+            div.divTime{ 
+                    background-image: -webkit-linear-gradient(top, #00cc44, #ccffdd); 
+                opacity:0.85; 
+                width: 200px; 
+                height:500px; 
+                position: fixed;
+                left: 500px;
+                top: 0px;
+            } 
+
+            div.floating{ 
+               /*     background-image: -webkit-linear-gradient(top, #00cc44, #000000); */
+                     background-color: #FF0000; 
+                opacity:0.85; 
+                width: 500px; 
+                height:178px; 
+                position: fixed;
+                left: 0px;
+                top: 205px;
+            } 
+
+            input,select,textarea{ 
+                font-family: "Tahoma"; 
+                font-size: 15px; 
+            } 
+            button{ 
+                font-family: "Corbel"; 
+            } 
+            button.green{ 
+               color: #FFFFFF; 
+            } 
+            p_hidden{ 
+                color: #000000; 
+                opacity:0.0; 
+            } 
+            p_title{ 
+                font-family: "Candara"; 
+                font-size: 20px; 
+                color: #ffffff; 
+            } 
+            body{ 
+                font-family: "Candara"; 
+                font-size: 18px; 
+            } 
+            div.DTitle{ 
+                position: absolute; 
+                top: 0px; 
+                left: 0px; 
+                width: 500px; 
+                height: 25px; 
+                padding: 0px; 
+                opacity: 0.8; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999); 
+            } 
+            div.UI{ 
+                position: absolute; 
+                top: 25px; 
+                left: 0px; 
+                width: 500px; 
+                height:500px; 
+                padding: 0px; 
+                opacity: 0.8; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #1ab2ff, #000000); 
+            } 
+            div.NumberChange{ 
+                position: absolute; 
+                width:520px; 
+                height:310px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.RateChange{ 
+                position: absolute; 
+                width: 520px; 
+                height: 240px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.SIMChange{ 
+                position: absolute; 
+                width: 520px; 
+                height: 260px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999,#999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.FeaturesChange{ 
+                position: absolute; 
+                width: 520px; 
+                height: 310px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999,#999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.MakePayment{ 
+                position: absolute; 
+                width: 520px; 
+                height: 100px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.Datapasses{ 
+                position: absolute; 
+                width: 520px; 
+                height: 60px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.Trouble{ 
+                position: absolute; 
+                width: 520px; 
+                height: 120px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.PortConv{ 
+                position: absolute; 
+                width: 520px; 
+                height: 270px; 
+                padding: 15px; 
+                opacity: 0.7; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+            } 
+            div.sub1,div.sub2 { 
+               position: absolute; 
+            } 
+            div.SelfHelp{ 
+                position: absolute; 
+                visibility: hidden; 
+            } 
+            div.SelfHelpOp{ 
+                position: relative; 
+                background-color: #000000; 
+                color: #ffffff; 
+                top: -285px; 
+                padding: 15px; 
+                width: 520px; 
+                height: 890px; 
+                opacity:0.99; 
+                visibility: hidden; 
+            } 
+            div.Table{ 
+                position: absolute; 
+                left: 240px; 
+                top: 490px; 
+                width: 300px; 
+                height: 220px; 
+            } 
+            div.Scratch{ 
+                position: absolute; 
+                left: 228px; 
+                top: 65px; 
+                padding: 2px; 
+                opacity:0.9; 
+                visibility: hidden; 
+                font-family: "Candara"; 
+                font-size: 12px; 
+            } 
+            div.MemoBtn{ 
+                position: absolute; 
+                left: 0px; 
+                top: 975px; 
+                width: 540px; 
+                padding: 5px; 
+                opacity: 0.9; 
+                visibility: hidden; 
+                background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #000000); 
+            } 
+            div.Memo{ 
+                position: absolute; 
+                left: 0px; 
+                top: 1010px; 
+                opacity: 0.9; 
+                visibility: hidden; 
+            } 
+            div.divCustomize{ 
+                position: fixed; 
+                background-color: #ffffff; 
+                left: 108px; 
+                top: 80px; 
+                opacity: 0.9; 
+                visibility: hidden; 
+            } 
+            body { 
+                background-color: #000000; 
+                /*ackground-image: url('http://area.autodesk.com/th.gen/?n/f7neq-g3wfi-wmvb3-tr477:600x600.jpg'); */
+                background-size:1982px 1300px; 
+                background-repeat: no-repeat; 
+                color: #FFFFFF; 
+            } 
+            button{ 
+                background-image: -webkit-linear-gradient(top, #000000, #999999); 
+                border-radius: 6px; 
+                text-shadow: 2px 4px 4px #ffffff; 
+                font-family: Candara; 
+                color: #FFFFFF; 
+                font-size: 12x; 
+                padding: 1px 1px 1px 1px; 
+                border: solid #0a090a 1px; 
+                text-decoration: none; 
+            } 
+            button:hover { 
+                background: #ff0000; 
+                background-image: -webkit-linear-gradient(top, #ff0000, #ff7700); 
+                background-image: -moz-linear-gradient(top, #ff0000, #ff7700); 
+                background-image: -ms-linear-gradient(top, #ff0000, #ff7700); 
+                background-image: -o-linear-gradient(top, #ff0000, #ff7700); 
+                background-image: linear-gradient(to bottom, #ff0000, #ff7700); 
+                text-decoration: none; 
+            } 
+            input.red{ 
+                background-image: -webkit-linear-gradient(top, #8fd4ff, #3498db); 
+                border-radius: 36px; 
+                text-shadow: 2px 4px 4px #ffffff; 
+                font-family: Candara; 
+                color: #FFFFFF; 
+                font-size: 12x; 
+                padding: 4px 15px 4px 14px; 
+                border: solid #0a090a 1px; 
+                text-decoration: none; 
+            } 
+            input.red:hover { 
+               background-image: -webkit-linear-gradient(top, #8fd4ff, #3498db); 
+            } 
+            #areaScratch, #areaEpin{ 
+                resize:none; 
+            } 
+            #amount{ 
+                text-align: right; 
+            } 
+
+
+
+            .dropbtn {
+                  background-color: #4CAF50;
+                  color: white;
+                  padding: 16px;
+                  font-size: 16px;
+                  border: none;
+                  cursor: pointer;
+                }
+
+            .dropbtn:hover, .dropbtn:focus {
+                  background-color: #3e8e41;
+                }
+
+            #myInput {
+                /*  border-box: box-sizing;*/
+                  /*background-image: url('searchicon.png');*/
+               /*  background-position: 14px 12px;*/
+                /*  background-repeat: no-repeat;*/
+                  font-size: 16px;
+                  padding: 1px 1px 1px 1px;
+                  border: none;
+                  border-bottom: 1px solid #ddd;
+                  text-align: center;
+                  height: 25px;
+                }
+
+            #myInput:focus {outline: 3px solid #ddd;}
+
+            .dropdown {
+                  position: relative;
+                  display: inline-block;
+                }
+
+            .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  left: 30px;
+                  top: -16px;
+                  background-color: #f6f6f6;
+                  min-width: 230px;
+                  width: 200px;
+                  overflow: auto;
+                  border: 1px solid #ddd;
+                  z-index: 1;
+
+                }
+
+            .dropdown-content a {
+                  color: black;
+                  padding: 3px 16px;
+                  text-decoration: none;
+                  display: block;
+              
+                }
+
+            .dropdown a:hover {background-color: #ddd;}
+
+            .show {display: block;}
+
+            input.reason{
+                    font-family: "Tahoma"; 
+                font-size: 10px ; 
+                height: 20px;
+            }
+
+              input.time{
+                    font-family: "Tahoma"; 
+                font-size: 10px ; 
+                height: 20px;
+           
+            }
+            p.other{
+
+                font-family: "Tahoma"; 
+                font-size: 15px ; 
+                height: 20px;
+                color: #000000;
+            }
+
+            html, body {margin: 0; height: 100%; overflow: hidden}
+
+        </style> 
+
+
+
+    </head>
+
+    <body  >
+        
+
+        <div id="divWrap" class="divWrap"> 
+            <!-- Use Interface UI--> 
+            <div id="divTitle" class="DTitle" style="visibility: visible;"> 
+                <center><p_title>KPIs v 2.0 </p_title></center>
+            </div> 
+
+           <!-- ___________________________________________________________ --> 
+
+            <center> <!-- BUTTONS --> 
+
+                <div id="divUI" class="UI" style="visibility: visible;"> 
+                    <!-- Creating UI --> 
+                    <form padding="0px"> 
+           
+
+
+                    
+                    Reason: 
+            
+                    <input   style="width:300px"  class="reason" type="search" autocomplete="off" onclick="searchClick()" placeholder="Search.." id="myInput" onkeypress="searchKeyPress()" onkeydown="searchKeyDown()"  onkeyup="filterFunction() ">
+
+                    <button  onclick="insertTemplate()"> Insert Template</button>
+                    <br>
+                    <div class="dropdown">
+
+                    <div id="myDropdown" class="dropdown-content" >
+<!-- 69   18x-->
+<!-- <a href="#blog"    onClick="ReasonDropDownOnClick('Check Status')" >-Check Status</a> -->
+    <a  tabindex='-1' onkeydown="searchKeyDown2()" id="id1"  href="#blog"  onClick="ReasonDropDownOnClick('Late Delivery - GHD', '1')" >Late Delivery - GHD</a>
+    <a  tabindex='-1' onkeydown="searchKeyDown2()" id="id68"  href="#blog"  onClick="ReasonDropDownOnClick('No Driver & Late - GHD )', '68')" >No Driver & Late - GHD </a>
+
+    <a  tabindex='-1' onkeydown="searchKeyDown2()" id="id58"  href="#blog"  onClick="ReasonDropDownOnClick('Late Delivery - SD', '58')" >Late Delivery - SD</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id2" href="#blog"  onClick="ReasonDropDownOnClick('Delivery Estimate Confirmation', '2')" >Delivery Estimate Confirmation</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id3" href="#blog"  onClick="ReasonDropDownOnClick('Order Not Received', '3')" >Order Not Received</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id4" href="#blog"  onClick="ReasonDropDownOnClick('Missed Delivery', '4')" >Missed Delivery</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id5" href="#blog"  onClick="ReasonDropDownOnClick('Order Unwanted - Change of plans', '5')" >Order Unwanted - Change of plans</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id6" href="#blog"  onClick="ReasonDropDownOnClick('Order Unwanted - Too Late', '6')" >Order Unwanted - Too Late</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id7" href="#blog"  onClick="ReasonDropDownOnClick('Restaurant is running late', '7')" >Restaurant is running late</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id8" href="#blog"  onClick="ReasonDropDownOnClick('Driver is running', '8')" >Driver is running late</a>
+<!-- <a href="#blog"  onClick="ReasonDropDownOnClick('Problems With Food')" >-Problems With Food</a> -->
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id9" href="#blog"  onClick="ReasonDropDownOnClick('Food Poisioning Claim', '9')" >Food Poisioning Claim</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id10" href="#blog"  onClick="ReasonDropDownOnClick('Food Allergies', '10')" >Food Allergies </a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id11" href="#blog"  onClick="ReasonDropDownOnClick('Food Temperature', '11')" >Food Temperature</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id12" href="#blog"  onClick="ReasonDropDownOnClick('Food Damaged', '12')" >Food Damaged</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id13" href="#blog"  onClick="ReasonDropDownOnClick('Food Quality', '13')" >Food Quality</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id14" href="#blog"  onClick="ReasonDropDownOnClick('Undercooked Food', '14')" >Undercooked Food</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id15" href="#blog"  onClick="ReasonDropDownOnClick('Foreign Object in Food', '15')" >Foreign Object in Food</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id16" href="#blog"  onClick="ReasonDropDownOnClick('Incorrect Item', '16')" >Incorrect Item</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id17" href="#blog"  onClick="ReasonDropDownOnClick('Incorrect Order', '17')" >Incorrect Order</a>
+   <!-- <a tabindex='-1' onkeydown="searchKeyDown2()" id="id18" href="#blog"  onClick="ReasonDropDownOnClick('Missing Item', '18')" >Missing Item</a> -->
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id19" href="#blog"  onClick="ReasonDropDownOnClick('Special Instructions Issue', '19')" >Special Instructions Issue</a>
+<!-- <a href="#blog"  onClick="ReasonDropDownOnClick('-Live order Issues')" >-Live order Issues</a> -->
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id20" href="#blog"  onClick="ReasonDropDownOnClick('No Driver', '20')" >No Driver</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id21" href="#blog"  onClick="ReasonDropDownOnClick('Order Not at Restaurant', '21')" >Order Not at Restaurant</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id69" href="#blog"  onClick="ReasonDropDownOnClick('Order Not at Restaurant - JIT', '69')" >Order Not at Restaurant - JIT</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id22" href="#blog"  onClick="ReasonDropDownOnClick('Diner Didn\'t Answer - GHD', '22')" >Diner Didn't Answer - GHD</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id59" href="#blog"  onClick="ReasonDropDownOnClick('Diner Didn\'t Answer - SD', '59')" >Diner Didn't Answer - SD</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id23" href="#blog"  onClick="ReasonDropDownOnClick('Driver unable to deliver to diner\'s door', '23')" >Driver unable to deliver to diner's door</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id24" href="#blog"  onClick="ReasonDropDownOnClick('Missing Item - GHD', '24')" >Missing Item - GHD</a>
+
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id60" href="#blog"  onClick="ReasonDropDownOnClick('Missing Item - JIT', '60')" >Missing Item - JIT</a>
+<a tabindex='-1' onkeydown="searchKeyDown2()" id="id61" href="#blog"  onClick="ReasonDropDownOnClick('Missing Item - SD', '61')" >Missing Item - SD</a>
+
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id25" href="#blog"  onClick="ReasonDropDownOnClick('Driver Contact-Order is Missing an Item', '25')" >Driver Contact-Order is Missing an Item </a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id26" href="#blog"  onClick="ReasonDropDownOnClick('Restaurant is Closed', '26')" >Restaurant is Closed - GHD</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id27" href="#blog"  onClick="ReasonDropDownOnClick('Order/Menu Issue', '27')" >Order/Menu Issue</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id28" href="#blog"  onClick="ReasonDropDownOnClick('Delivery Information Incorrect', '28')" >Delivery Information Incorrect</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id29" href="#blog"  onClick="ReasonDropDownOnClick('Diner\'s Address is Outside of Delivery Boundaries', '29')" >Diner's Address is Outside of Delivery Boundaries</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id30" href="#blog"  onClick="ReasonDropDownOnClick('Driver Lost', '30')" >Driver Lost</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id31" href="#blog"  onClick="ReasonDropDownOnClick('Driver is unable to deliver to a military base', '31')" >Driver is unable to deliver to a military base</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id32" href="#blog"  onClick="ReasonDropDownOnClick('Driver calling from unknown phone number', '32')" >Driver calling from unknown phone number</a>
+<!--<a href="#blog"  onClick="ReasonDropDownOnClick('Order Information Disposition')" >Order Information Disposition</a> -->
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id33" href="#blog"  onClick="ReasonDropDownOnClick('Delivery Address Update', '33')" >Delivery Address Update</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id34" href="#blog"  onClick="ReasonDropDownOnClick('Contact Information Update', '34')" >Contact Information Update</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id35" href="#blog"  onClick="ReasonDropDownOnClick('Order Changed to Delivery', '35')" >Order Changed to Delivery</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id36" href="#blog"  onClick="ReasonDropDownOnClick('Order Changed to Pickup', '36')" >Order Changed to Pickup</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id37" href="#blog"  onClick="ReasonDropDownOnClick('Restaurant Delivery Estimate Update', '37')" >Restaurant Delivery Estimate Update</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id38" href="#blog"  onClick="ReasonDropDownOnClick('Order Details Confirmation', '38')" >Order Details Confirmation</a>
+<!-- <a href="#blog"  onClick="ReasonDropDownOnClick('Order Total Modifications Disposition')" >Order Total Modifications  -->Disposition</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id39" href="#blog"  onClick="ReasonDropDownOnClick('Item Added To Order', '39')" >Item Added To Order</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id40" href="#blog"  onClick="ReasonDropDownOnClick('Item Removed From Order', '40')" >Item Removed From Order</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id41" href="#blog"  onClick="ReasonDropDownOnClick('Item replacement', '41')" >Item replacement</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id42" href="#blog"  onClick="ReasonDropDownOnClick('Tip Added to Order', '42')" >Tip Added to Order</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id43" href="#blog"  onClick="ReasonDropDownOnClick('Tip Removed from Order', '43')" >Tip Removed from Order</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id44" href="#blog"  onClick="ReasonDropDownOnClick('Upcharge-Special Instructions', '44')" >Upcharge-Special Instructions</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id45" href="#blog"  onClick="ReasonDropDownOnClick('Restaurant Requested Refund', '45')" >Restaurant Requested Refund</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id46" href="#blog"  onClick="ReasonDropDownOnClick('Delivery Fee Adjustment-Restaurant Contact', '46')" >Delivery Fee Adjustment-Restaurant Contact</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id47" href="#blog"  onClick="ReasonDropDownOnClick('Delivery Fee Removed from Order - Diner Request', '47')" >Delivery Fee Removed from Order - Diner Request</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id48" href="#blog"  onClick="ReasonDropDownOnClick('Adjustment procedure', '48')" >Adjustment procedure</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id49" href="#blog"  onClick="ReasonDropDownOnClick('Ad Fee Adjustment', '49')" >Ad Fee Adjustment</a>
+<!--<a href="#blog"  onClick="ReasonDropDownOnClick('Compromised Diner Accounts/Blocked Orders/Non-Diner Unknown Charges')" >Compromised Diner Accounts/Blocked Orders/Non-Diner Unknown Charges  </a>-->
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id50" href="#blog"  onClick="ReasonDropDownOnClick('Compromised Diner Accounts', '50')" >Compromised Diner Accounts</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id51" href="#blog"  onClick="ReasonDropDownOnClick('Unknown Charges on bank statement', '51')" >Unknown Charges on bank statement </a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id52" href="#blog"  onClick="ReasonDropDownOnClick('Blocked Orders', '52')" >Blocked Orders</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id53" href="#blog"  onClick="ReasonDropDownOnClick('Unable to Mark Order as Delivered', '53')" >Unable to Mark Order as Delivered</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id67" href="#blog"  onClick="ReasonDropDownOnClick('Reassign Order', '67')" >Reassign Order CC</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id54" href="#blog"  onClick="ReasonDropDownOnClick('Reassign Order', '54')" >Reassign Order DC</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id55" href="#blog"  onClick="ReasonDropDownOnClick('Market Check', '55')" >Market Check</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id56" href="#blog"  onClick="ReasonDropDownOnClick('Dropped Call', '56')" >Dropped Call</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id57" href="#blog"  onClick="ReasonDropDownOnClick('Dead Air Call', '57')" >Dead Air Call</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id62" href="#blog"  onClick="ReasonDropDownOnClick('Transfer to DC', '62')" >Transfer to DC</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id63" href="#blog"  onClick="ReasonDropDownOnClick('Transfer to CXT', '63')" >Transfer to CXT</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id64" href="#blog"  onClick="ReasonDropDownOnClick('Transfer to Corp', '64')" >Transfer to Corp Care</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id65" href="#blog"  onClick="ReasonDropDownOnClick('Transfer to RC', '65')" >Transfer to RC</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id66" href="#blog"  onClick="ReasonDropDownOnClick('Transfer to DaaS Care', '66')" >Transfer to DaaS Care</a>
+    <a tabindex='-1' onkeydown="searchKeyDown2()" id="id70" href="#blog"  onClick="ReasonDropDownOnClick('Restaurant doesn\'t want to work with GH', '70')" >Restaurant doesn't want to work with GH - P&P</a>
+
+    <!--  ENDS 70  -->
+
+                </div>
+            </div>
+                    
+   
+            <hr>
+            Template:
+            
+           
+            <br>
+            <textarea id="areaAdditionalActions" rows="25" cols="68" ></textarea> 
+            
+           
+
+
+
+                    
+        </form> 
+    </div>
+
+<input   style="position:fixed;width:300px;top:93px;left:500px"  type="text"  id="txtQuick1" onmouseover="this.select();" onmouseout="restorevalue('1')" value=" Called diner / ">
+     
+<input   style="position:fixed;width:300px;top:118px;left:500px"  type="text"  id="txtQuick2" onmouseover="this.select();" onmouseout="restorevalue('2')" value=" Called driver / ">
+
+<input   style="position:fixed;width:300px;top:143px;left:500px"  type="text"  id="txtQuick3" onmouseover="this.select();" onmouseout="restorevalue('3')" value=" Called restaurant / ">
+
+<input   style="position:fixed;width:300px;top:171px;left:500px"  type="text"  id="txtQuick4" onmouseover="this.select();" onmouseout="restorevalue('4')" value=" Checked Ticket #">
+
+<input   style="position:fixed;width:300px;top:199px;left:500px"  type="text"  id="txtQuick5" onmouseover="this.select();" onmouseout="restorevalue('5')" value=" Offered a Free_Grub of %$">
+
+<input   style="position:fixed;width:300px;top:224px;left:500px"  type="text"  id="txtQuick6" onmouseover="this.select();" onmouseout="restorevalue('6')" value=" Issued a Free_Grub of %$">
+
+<input   style="position:fixed;width:300px;top:252;left:500px"  type="text"  id="txtQuick7" onmouseover="this.select();" onmouseout="restorevalue('7')" value=" Refunded on Grubhub $">
+
+<input   style="position:fixed;width:300px;top:277;left:500px"  type="text"  id="txtQuick8" onmouseover="this.select();" onmouseout="restorevalue('8')" value=" Refunded on Restaurant $">
+
+<input   style="position:fixed;width:300px;top:302;left:500px"  type="text"  id="txtQuick9" onmouseover="this.select();" onmouseout="restorevalue('9')" value=" Cancelled order on Grubhub / ">
+
+<input   style="position:fixed;width:300px;top:327;left:500px"  type="text"  id="txtQuick10" onmouseover="this.select();" onmouseout="restorevalue('10')" value=" Cancelled order on Restaurant / ">
+
+<input   style="position:fixed;width:300px;top:355;left:500px"  type="text"  id="txtQuick11" onmouseover="this.select();" onmouseout="restorevalue('11')" value=' Provided Refund Expectations "You should see the transaction settle shortly, withing the next few days..." '>
+
+
+
+
+<script>
+
+// INSERT CHAR
+
+
+//
+
+//Global variables
+var myIDS = [];
+var isVisible = false;
+var currentID = 0;
+var previousDir = 0; // 0 Down/ 1 up
+
+var ReasonID = 0;// deafault Late Delivery
+
+document.getElementById("myInput").focus();
+//fncOnload();
+
+
+
+function restorevalue( id){
+
+    var RValues = [
+      "PLACEHOLDER",
+      " Called diner / ",
+      " Called driver / ",
+      " Called restaurant / ",
+      " Checked Ticket #",
+      " Offered a Free_Grub of %$",
+      " Issued a Free_Grub of %$",
+      " Refunded on Grubhub $",
+      " Refunded on Restaurant $",
+      " Cancelled order on Grubhub / ",
+      " Cancelled order on Restaurant / ",
+      " Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\" "
+    ];
+
+    document.getElementById("txtQuick"+ id).value = RValues[id] + "\n";
+
+
+
+}
+
+function insertTemplate(){
+
+
+    var TemplateString="";
+    var The_Reason =  document.getElementById("myInput").value ; 
+
+
+
+    switch(ReasonID) 
+    {
+          case '0':
+        // Phone Notes Template
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant) \n\nWhat was their issue:  \n\nWhat action did we take:  \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (role)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+
+            document.getElementById("areaAdditionalActions").value = TemplateString;
+        break;
+            
+            case '1':
+             // Late Delivery - GHD
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Late Delivery \n\nWhat action did we take: Called driver/\n- Got ETA  / Updated diner\n- No Answer / send sms requesting ETA\n\n- diner will wait / provided a Free_Grub %$ \n- diner won\'t wait / Cancelled Unwanted Order Too Late / Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\" \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (driver)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            case '4':
+             //  Missed Delivery 
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Missed Delivery \n\nWhat action did we take: Delivery Attempts on Ticket #\n- Offered a Free_Grub of %$\n     - Diner Accepted / \n     - Diner Declined / \n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with: \n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            
+            case '21':
+              // Order not at Restaurant
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Order Not at Restaurant\n\nWhat action did we take:\ncalled restaurant/\n\n- They have the order / Got Preparation Time\n- They do not have the order\n     - Resend Order /\n          - Restaurant still does not have the order/\n          - Restaurant got the order/ Got Preparation time\n\n> Updated Driver\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (restaurant)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '22':
+            // Diner Didn\'t Answer - GHD
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Diner did not answer \n\nWhat action did we take:\nSend sms to driver about the new flow in the Driver App  \n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with: \n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '24':
+            // Missing Item - GHD
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Missing Item: \n\n\nWhat action did we take: called driver/\n- No Answer / Refunded on Grubhub $\n- Driver doesn\'t have the missing item/ Refunded on Restaurant $\n- Driver has the missing item\n     - Driver will go back/ informed ETA to diner \n     - Driver won\'t go back / Refunded on Grubhub $\n\n>  Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\" \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (driver)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '26':
+            // Restaurant is Closed - GHD
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Restaurant is Closed \n\nWhat action did we take: called restaurant/\n- No Answer\n     - Called Primary/ \n          - No answer \n          - They answered \n               - Confirmed they are open/ \n               - Confirmed they are closed/\n- They Answered\n     - Confirmed they are open/ \n     - Confirmed they are closed/ \n\n> Set Restaurant to Stop Taking Orders\n\n> Cancelled order on Restaurant /\n\n> Called diner /\n- No Answer \n     - Left a VM / \n     - Unable to leave a VM /\n - Informed about Cancellation\n\n> Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\"\n\n Issued a Free_Grub of %$ \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (restaurant)\n\nProvide a description of what was discussed: \n\n\n(Required) Name of the person you spoke with: NAME (diner)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '27':
+            // Order/Menu Issue 
+                TemplateString = "Who did we speak with: NAME (restaurant) \n\nWhat was their issue: Order/Menu Issue []\n\nWhat action did we take: Called diner /\n- Informed about Menu Issue\n     - Diner will substitute\n     - Diner will cancel item\n- No Answer \n     - Left a VM /Send SMS/ waited some minutes/ called again \n          - Informed about Menu Issue \n               - Diner will substitute\n               - Diner will cancel item\n          - No answer\n               > Refunded on restaurant\n               > Cancelled on restaurant\n\n> Informed restaurant about resolution\n> Updated Menu\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (diner)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.\n\n****\nHello Grubhub here!, The restaurant REST_NAME is out of ITEM_NAME, they want to know if you want to replace it with something else or if you prefer to cancel it?, I will contact you shortly!\n****";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+            case '33':
+            // Delivery Address Update - GHD
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Delivery Address Update\nNew address: [] \n\nWhat action did we take: Called driver /\n- Informed about new address\n     - Driver will go to new address/ Send mileage macro\n     - Driver won\'t go to new address/  Refunded order on Grubhub/ Advised to mark as completed.\n- No Answer\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (driver)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            
+            case '53':
+            // Unable to Mark Order as Delivered
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Unable to mark as delivered \n\nWhat action did we take: send sms to the diner / marked order as Delivered\n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with: \n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            
+
+            case '54':
+            // Reassign Order DC
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: wants to reassign order / \n\nWhat action did we take: Transferred to Driver Care\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (Driver Care)\n\nProvide a description of what was discussed: informed about driver's request \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+        
+
+            case '56':
+            // Dropped Call
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant)  \n\nWhat was their issue: Call dropped / No interactions  \n\nWhat action did we take: Called back /  \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (role)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '57':
+            // Dead Air Call
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant)  \n\nWhat was their issue: Dead Air Call/ read script/ Disconnected Call / No interactions  \n\nWhat action did we take: Called back / \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (role)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            
+
+            case '58':
+            // Late Delivery - SD
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Late Delivery \n\nWhat action did we take: Called restaurant/\n- Got ETA  / Updated diner\n- No Answer / asked diner if they prefer to wait or cancel\n\n- diner will wait  \n- diner won\'t wait / Informed we will cancel the order and they will receive their money back / Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\"/ called restaurant again about the Unwanted Order Too Late / \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (restaurant)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+            
+
+            case '59':
+            // Diner Didn\'t Answer - SD
+                TemplateString = "Who did we speak with: NAME (restaurant) \n\nWhat was their issue: Diner did not answer \n\nWhat action did we take: called diner/\n- Informed about delivery\n- No Answer \n     - Left a VM / \n     - Unable to leave a VM /\n\n> Called Alternate Phone\n> Send SMS and Email\n\n- Advised restaurant to allow 5-10 minutes/ Then they can mark order as delivered\n- Advised restaurant to proceed with the delivery  \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (diner)\n\nProvide a description of what was discussed: No answer\n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+        
+          case '60':
+            // Missing Item - JIT
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Missing Item: \n\n\nWhat action did we take:\nRefunded on Restaurant $ / \n\n>  Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\" \n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with: \n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+            case '62':
+            // Transfer to Driver Care
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: wants to \n\nWhat action did we take: Transferred to Driver Care\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (Driver Care)\n\nProvide a description of what was discussed: informed about driver's request \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+            case '63':
+            // Transfer to CXT Care
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: wants to \n\nWhat action did we take: Transferred to CXT\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (CXT)\n\nProvide a description of what was discussed: informed about diner's request \n\n\n*Reminder: Please offer the survey at the end of the call.\n Approved by ";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+          case '64':
+            // Transfer to Corp Care
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant) \n\nWhat was their issue: wants to \n\nWhat action did we take: Transferred to Corporate Care\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (Corporate Care)\n\nProvide a description of what was discussed: informed about caller's request \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+          case '65':
+            // Transfer to Restaurant Care
+                TemplateString = "Who did we speak with: NAME (restaurant) \n\nWhat was their issue: wants to \n\nWhat action did we take: Transferred to Restaurant Care\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (Restaurant Care)\n\nProvide a description of what was discussed: informed about restaurant's request \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+            case '66':
+            // Transfer to DaaS
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant) \n\nWhat was their issue: wants to \n\nWhat action did we take: Transferred to DaaS Care\n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (DaaS Care)\n\nProvide a description of what was discussed: informed about caller's request \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+            case '67':
+              // Reassign Order CC
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: wants to reassign order: [] / \n\nWhat action did we take:\nReassigned order \n- Informed it will impact Acceptance Rate \n- Informed it won't impact Acceptance Rate\n\n>Informed block will be ended  \n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with:\n\nProvide a description of what was discussed:\n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+            case '68':
+              // No Driver & Late - GHD 
+                TemplateString = "Who did we speak with: NAME (diner) \n\nWhat was their issue: Late Delivery / \n\nWhat action did we take: (No driver)\nInformed we are working to have this order delivered ASAP, \nAsked if they want to Cancel or if they want to wait for the order/\n\n- diner will wait / provided a Free_Grub %$\n- diner won't wait / Cancelled Unwanted Order Too Late / Provided Refund Expectations \"You should see the transaction settle shortly, withing the next few days...\"  \n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with:\n\nProvide a description of what was discussed:\n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+           case '69':
+              // Order not at Restaurant JIT
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Order Not at Restaurant\n\nWhat action did we take:\n\n>Informed driver to hit arrive on the app\n>Resend the order\n>Informed to allow 5 minutes and he does not have the order after that time he must Contact Care.\n\n***Taco Bell order, driver should ask to any Taco Bell Employee to check order on the mobile view, and to manually check in the order on the POS\n\n\n\nOutbound call notes (if an outbound call was made): no \n\n(Required) Name of the person you spoke with:\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+      case '70':
+              //Restaurant doesn't want to work with GH  
+                TemplateString = "Who did we speak with: NAME (driver) \n\nWhat was their issue: Restaurant doesn't want to work with GH\n\nWhat action did we take: Ask the driver /\n“Is there a specific reason that the restaurant would not like to be on the platform? Did something go wrong when you were placing the order?”\n=\n\n“Was there an issue with the restaurant menu, pricing, card, or is the restaurant asking why they are on the platform?”\n=\n\n> Cancelled order on Grubhub/\n\n> Called diner /\n- No Answer\n     - Left a VM / \n     - Unable to leave a VM /\n - Informed about Cancellation\n\n> Provided Refund Expectations “You should see the transaction settle shortly, withing the next few days...”\n\n Issued a Free_Grub of %$ \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (diner)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+            break;
+
+
+
+            default:
+            // Phone Notes Template
+                TemplateString = "Who did we speak with: NAME (diner driver restaurant) \n\nWhat was their issue: " + The_Reason + "  \n\nWhat action did we take:  \n\n\n\nOutbound call notes (if an outbound call was made): yes \n\n(Required) Name of the person you spoke with: NAME (role)\n\nProvide a description of what was discussed: \n\n\n*Reminder: Please offer the survey at the end of the call.";
+
+                document.getElementById("areaAdditionalActions").value = TemplateString;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+function searchClick() {
+  document.getElementById("myDropdown").classList.toggle("show");
+
+}
+
+
+function searchKeyDown2() {
+    var e;
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') { // UP ARROW 
+        
+        // 0 DOWN | 1 UP
+        if (previousDir == 1) {
+        
+            //***increase currentID // we need to reset when div is disabled 
+
+           //substract only if is less than array length
+            if (currentID > 0) {
+                currentID--;
+            }
+            else{
+              //  alert("out of range");
+            }
+
+
+           // alert(previousDir);
+        }
+        else if(previousDir == 0){ //if is DOWN
+            
+                 
+           //substract only if is less than array length
+            if (currentID > 0) {
+                currentID--;
+            }
+            else{
+            //    alert("out of range");
+            }
+            
+            //alert(previousDir);
+          
+        }
+            //assign value UP
+        previousDir = 1;
+
+        //--currentID;
+
+        document.getElementById(myIDS[currentID ]).focus();
+        //--alert ("focus on " + currentID);
+        //alert(currentID);
+        //increase currentID // we need to reset when div is disabled 
+            
+    }
+    else if (e.keyCode == '40') { //DOWN ARROW
+                
+        
+    
+
+            if (previousDir == 0) {
+
+
+               //add only if is less than array length
+                if (currentID < (myIDS.length -1)) {
+                    currentID++;
+                }
+                else{
+                  //  alert("out of range");
+                }
+            
+
+            }
+            else if(previousDir == 1)// if is up
+            {
+      
+                if (currentID < (myIDS.length -1)) {
+                    currentID++;
+                }
+                else{
+                   // alert("out of range");
+                }
+
+            }
+
+            //assign value DOWN
+            previousDir = 0;
+
+            //alert(currentID);
+            document.getElementById(myIDS[currentID ]).focus();
+
+
+
+
+    }
+    else if (e.keyCode == '37') {
+           // left arrow
+    }
+    else if (e.keyCode == '39') {
+           // right arrow
+    }
+
+}
+
+
+function searchKeyDown() { //HEREE ther is a second search keydown we need to see 
+
+    //Check if current positon is 0
+    if (currentID == 0) {
+
+        var e;
+
+        e = e || window.event;
+
+        if (e.keyCode == '38') {
+            // up arrow
+        }
+        else if (e.keyCode == '40') {
+            // down arrow
+                
+            document.getElementById(myIDS[0]).focus();
+        }
+        else if (e.keyCode == '37') {
+           // left arrow
+        }
+        else if (e.keyCode == '39') {
+           // right arrow
+        }
+    }
+    else {// position is not 0
+
+    }
+}
+
+
+function searchKeyPress() {
+if (document.getElementById("myDropdown").classList.toggle("show")) {
+
+
+}
+else{
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+ 
+}
+
+function ReasonDropDownOnClick(reason , id) {
+
+    ReasonID = id;
+    document.getElementById("myInput").value = reason;
+    document.getElementById("myDropdown").classList.toggle("show");
+
+   //document.getElementById("areaAdditionalReason").focus();
+   
+   //alert(ReasonID);
+
+
+    //autopopulate
+   if ( document.getElementById("areaAdditionalActions").value == "" ) {
+
+       insertTemplate();
+
+        document.getElementById("areaAdditionalActions").focus();
+   }
+
+  
+}
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  
+  //-- clearArray
+  myIDS = [];
+
+
+  for (i = 0; i < a.length; i++) {
+
+    //new
+    //alert( a[i].id);
+
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+
+    //-- Fill Array
+
+      myIDS.push(a[i].id);
+
+    //Reset position
+     currentID = 0;
+     previousDir = 0;
+
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+
+    //-- check array content 
+    for (j = 0; j < myIDS.length; j++) {
+        //alert(myIDS[j]);  
+    }
+
+
+}
+
+</script>
+
+    </body>
+    </html>

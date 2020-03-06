@@ -1,0 +1,1497 @@
+<html><head>
+<title>Performance 3.2</title> 
+
+<style> 
+/*Set Default 0 margin*/ 
+html,body{ margin:0; } 
+div.divWrap{ 
+background-color: #000000; 
+opacity:0.85; 
+width: 100%; 
+height:1300px; 
+} 
+/*Customizing input, textarea & select*/ 
+input,select,textarea{ 
+font-family: "Tahoma"; 
+font-size: 15px; 
+} 
+button{ 
+font-family: "Corbel"; 
+} 
+button.green{ 
+color: #FFFFFF; 
+} 
+p_hidden{ 
+color: #000000; 
+opacity:0.0; 
+} 
+p_title{ 
+font-family: "Candara"; 
+font-size: 58px; 
+color: #ffffff; 
+} 
+body{ 
+font-family: "Candara"; 
+font-size: 18px; 
+} 
+div.DTitle{ 
+position: absolute; 
+top: 0px; 
+left: 0px; 
+width: 520px; 
+height: 50px; 
+padding: 15px; 
+opacity: 0.8; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999); 
+} 
+div.UI{ 
+position: absolute; 
+top: 80px; 
+left: 0px; 
+width: 520px; 
+height:121px; 
+padding: 15px; 
+opacity: 0.8; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999); 
+} 
+div.NumberChange{ 
+position: absolute; 
+width:520px; 
+height:310px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.RateChange{ 
+position: absolute; 
+width: 520px; 
+height: 240px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.SIMChange{ 
+position: absolute; 
+width: 520px; 
+height: 260px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999,#999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.FeaturesChange{ 
+position: absolute; 
+width: 520px; 
+height: 310px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999,#999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.MakePayment{ 
+position: absolute; 
+width: 520px; 
+height: 100px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.Datapasses{ 
+position: absolute; 
+width: 520px; 
+height: 60px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.Trouble{ 
+position: absolute; 
+width: 520px; 
+height: 120px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.PortConv{ 
+position: absolute; 
+width: 520px; 
+height: 270px; 
+padding: 15px; 
+opacity: 0.7; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #999999, #999999, #999999, #000000); 
+} 
+div.sub1,div.sub2 { 
+position: absolute; 
+} 
+div.SelfHelp{ 
+position: absolute; 
+visibility: hidden; 
+} 
+div.SelfHelpOp{ 
+position: relative; 
+background-color: #000000; 
+color: #ffffff; 
+top: -285px; 
+padding: 15px; 
+width: 520px; 
+height: 890px; 
+opacity:0.99; 
+visibility: hidden; 
+} 
+div.Table{ 
+position: absolute; 
+left: 240px; 
+top: 490px; 
+width: 300px; 
+height: 220px; 
+} 
+div.Scratch{ 
+position: absolute; 
+left: 228px; 
+top: 65px; 
+padding: 2px; 
+opacity:0.9; 
+visibility: hidden; 
+font-family: "Candara"; 
+font-size: 12px; 
+} 
+div.MemoBtn{ 
+position: absolute; 
+left: 0px; 
+top: 975px; 
+width: 540px; 
+padding: 5px; 
+opacity: 0.9; 
+visibility: hidden; 
+background-image: -webkit-linear-gradient(top, #000000, #999999, #999999, #000000); 
+} 
+div.Memo{ 
+position: absolute; 
+left: 0px; 
+top: 1010px; 
+opacity: 0.9; 
+visibility: hidden; 
+} 
+div.divCustomize{ 
+position: fixed; 
+background-color: #ffffff; 
+left: 108px; 
+top: 80px; 
+opacity: 0.9; 
+visibility: hidden; 
+} 
+body { 
+background-color: #000000; 
+background-image: url('http://area.autodesk.com/th.gen/?n/f7neq-g3wfi-wmvb3-tr477:600x600.jpg'); 
+background-size:1982px 1300px; 
+background-repeat: no-repeat; 
+color: #FFFFFF; 
+} 
+button{ 
+background-image: -webkit-linear-gradient(top, #000000, #999999); 
+border-radius: 36px; 
+text-shadow: 2px 4px 4px #ffffff; 
+font-family: Candara; 
+color: #FFFFFF; 
+font-size: 12x; 
+padding: 4px 15px 4px 14px; 
+border: solid #0a090a 1px; 
+text-decoration: none; 
+} 
+button:hover { 
+background: #ff0000; 
+background-image: -webkit-linear-gradient(top, #ff0000, #ff7700); 
+background-image: -moz-linear-gradient(top, #ff0000, #ff7700); 
+background-image: -ms-linear-gradient(top, #ff0000, #ff7700); 
+background-image: -o-linear-gradient(top, #ff0000, #ff7700); 
+background-image: linear-gradient(to bottom, #ff0000, #ff7700); 
+text-decoration: none; 
+} 
+input.red{ 
+background-image: -webkit-linear-gradient(top, #8fd4ff, #3498db); 
+border-radius: 36px; 
+text-shadow: 2px 4px 4px #ffffff; 
+font-family: Candara; 
+color: #FFFFFF; 
+font-size: 12x; 
+padding: 4px 15px 4px 14px; 
+border: solid #0a090a 1px; 
+text-decoration: none; 
+} 
+input.red:hover { 
+background-image: -webkit-linear-gradient(top, #8fd4ff, #3498db); 
+} 
+#areaScratch, #areaEpin{ resize:none; } 
+#amount{ text-align: right; } 
+</style> 
+
+</head> 
+
+<body onload="v&quot;vfncLoaded()&quot;"> 
+
+<div id="divWrap" class="divWrap"> 
+<!-- Use Interface UI--> 
+<div id="divTitle" class="DTitle" style="visibility: visible;"> 
+<center><p_title>Performance v 3.2 </p_title></center></div> 
+<!--<input type="checkbox" id="chkCustomize" onchange="CustomChange()"><br><br>--> 
+<!-- ___________________________________________________________ --> 
+<div id="divUI" class="UI" style="visibility: visible;"> 
+<!-- Creating UI --> 
+<form padding="0px"> 
+AGENT: <input type="text" id="txtAgent" name="txtAgent" size="15" value=""><p_hidden>||</p_hidden>|<p_hidden>||</p_hidden> 
+Caller's Name: <input id="txtName" type="text" name="txtName"> <hr> 
+<center> <!-- BUTTONS --> 
+<button type="button" style="width:160px;height:30px" onclick="fncNumChange()">MSISDN Change</button> 
+<button type="button" style="width:160px;height:30px" onclick="fncRateChange()">Rate Plan Change</button> 
+<button type="button" style="width:160px;height:30px" onclick="fncSimChange()">SIM Card Change </button> <br> 
+<button type="button" style="width:160px;height:30px" onclick="fncFeatures()">Features</button> 
+<button type="button" style="width:160px;height:30px" onclick="fncMakePayment()">Make a Payment </button> 
+<button type="button" style="width:160px;height:30px" onclick="fncDataPasses()"> Data Passes </button> 
+<button type="button" style="width:160px;height:30px" onclick="fncTrouble()"> Troubleshooting </button> 
+<button type="button" style="width:160px;height:30px" onclick="fncPortConv()"> Port In | Conversion </button> 
+<button type="button" style="width:160px;height:30px" onclick="fncEmptyTemplate()"> Blank Note </button> 
+</center> 
+</form> 
+</div><br> 
+<!-- ___________________________________________________________ --> 
+<div id="divNumChange" class="NumberChange" style="visibility: hidden; top: 231px;"> 
+<form> 
+<!-- OPTION BUTTON--><br> 
+<input id="optHC" type="radio" name="reason" value="HC" checked="">Unwanted/Harassing Calls <br> 
+<input id="optWA" type="radio" name="reason" value="WA">Wrong Area Code 
+<hr> 
+<!-- CHECK BOXES --> 
+<input type="checkbox" id="adv1" name="adv1" value="- Number changes limited to once/90 days." checked="">Number changes limited to once/90 days. <br> 
+<input type="checkbox" id="adv2" name="adv2" value="- All voicemail messages are deleted" checked="">All voicemail messages are deleted. <br> 
+<input type="checkbox" id="adv3" name="adv3" value="-Device may not be operational for up to 2 hours." checked="">Device may not be operational for up to 2 hours. <br> 
+<input type="checkbox" id="adv4" name="adv4" value="-The device must remain turned on." checked="">The device must remain turned on. <br> 
+<input type="checkbox" id="adv5" name="adv5" value="-Free text message is sent with new number." checked="">Free text message is sent with new number. <br> 
+<input type="checkbox" id="adv6" name="adv6" value="-Balance, minutes, and expiration date are transfer." checked="">Balance, minutes, and expiration date are transfer. <br> 
+<input type="checkbox" id="adv7" name="adv7" value="-Lose previously purchased CallerTunes.">Lose previously purchased CallerTunes. <br> 
+<input type="checkbox" id="adv8" name="adv8" value="-Auto-Pay automatically canceled.">Auto-Pay automatically canceled. <br> 
+<input type="checkbox" id="adv9" name="adv9" value="-If calling from the phone the call will drop." checked="">If calling from the phone the call will drop. <br> 
+<input type="checkbox" id="adv10" name="adv10" value="-Do not perform any refills." checked="">Do not perform any refills. <br> 
+</form> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divRateChange" class="RateChange" style="visibility: hidden; top: 231px;"> 
+<form>
+<br>
+<table>
+    <tbody><tr>
+        <td> Old Rate Plan: </td>
+        <td> <select id="myPlanSelect1"> 
+<option disabled="">---------------------- Pay As You Go ---------------------</option> 
+<option>Pay As You Go Legacy Grandfathered</option> 
+<option>$3 Pay As You Go 30 min|sms $0.10 Overages</option> 
+<option disabled="">--------------------- Pay By The Day --------------------</option> 
+<option>$2 Day UL TTW 2G Grandfathered</option> 
+<option>$3 Day UL TTW Web 200 Mb 4G Grandfathered</option> 
+<option disabled="">---------------------- Simply Prepaid ---------------------</option> 
+<option>$45 Simply Prepaid UL TTW 4GB LTE</option>
+<option>$50 Simply Prepaid UL TTW 10GB LTE</option>
+<option>$55 Simply Prepaid UL TTW 6GB LTE</option>
+<option disabled="">----------------------- T-Mobile One ---------------------</option> 
+<option>$75 Prepaid ONE UNL Talk, Text &amp; 4G LTE</option>
+<option disabled="">------------- Simply Prepaid Grandfathered ----------</option> 
+<option>$25 UL TT No Data Grandfathered</option> 
+<option>$40 Simply Prepaid UL TTW 3Gb 4G, Grandfathered</option> 
+<option>$50 Simply Prepaid UL TTW 5Gb 4G, Grandfathered</option> 
+<option>$60 Simply Prepaid UL TTW 10Gb 4G, Grandfathered</option>
+<option disabled="">-------------- Simple Choice Grandfathered--------------</option> 
+<option> $50 NA UL TT 2GB 4G LTE Grandfathered</option>
+<option> $65 NA UL TT 6GB 4G LTE Grandfathered</option>
+<option> $80 NA UL TT 10GB 4G LTE Grandfathered</option>
+<option> $95 NA UL TT 4G LTE + 14GB SMHS Grandfathered</option>
+<option disabled="">----------------------- Promotional -----------------------</option> 
+<option>$30 UL Web Text 5Gb 4G &amp; 100 min $0.10 Overages</option>
+<option disabled="">------------- North America Grandfathered -------------</option> 
+<option>$50 NA UL TTW 1Gb 4G Grandfathered</option> 
+<option>$60 NA UL TTW 3Gb 4G Grandfathered</option> 
+<option>$70 NA UL TTW 5Gb 4G Grandfathered</option> 
+<option>$80 NA UL 4G TT 7Gb SPMH/Throttle 2G Grandfathered</option> 
+<option disabled="">-------------- Simple Choice Grandfathered--------------</option> 
+<option>$50 UL TTW 1Gb 4G Grandfathered</option> 
+<option>$60 UL TTW 3Gb 4G Grandfathered</option> 
+<option>$70 UL TTW 5Gb 4G Grandfathered</option> 
+<option>$80 UL 4G TT 7Gb SPMH Grandfathered</option> 
+<option disabled="">-------------- Simply Prepaid Grandfathered --------------</option> 
+<option>$35 UL TT No Data</option> 
+<option>$40 Simply Prepaid UL TTW 1Gb 4G, Grandfathered</option> 
+<option>$50 Simply Prepaid UL TTW 3Gb 4G, Grandfathered</option> 
+<option>$60 Simply Prepaid UL TTW 5Gb 4G, Grandfathered</option>
+<option disabled="">------------------ Monthly Grandfathered-----------------</option> 
+<option>$30 1500 TT 30Mb Web Grandfathered </option> 
+<option>$40 UL TT 500Mb Capped Data Grandfathered</option> 
+<option>$45 UL TT 2 Gb Capped Data Grandfathered</option> 
+<option>$70 UL 4G TT 3Gb SPMH Grandfathered</option> 
+</select> </td>
+    </tr>
+    <tr>
+        <td> New Rate Plan: </td>
+        <td> <select id="myPlanSelect2"> 
+<option disabled="">---------------------- Pay As You Go ---------------------</option> 
+<option>$3 Pay As You Go 30 min|sms $0.10 Overages</option> 
+option disabled=""&gt;---------------------- Simply Prepaid --------------------- 
+<option>$45 Simply Prepaid UL TTW 4GB LTE</option>
+<option>$50 Simply Prepaid UL TTW 10GB LTE</option>
+<option>$55 Simply Prepaid UL TTW 6GB LTE</option>
+<option disabled="">----------------------- T-Mobile One ---------------------</option> 
+<option>$75 Prepaid ONE UNL Talk, Text &amp; 4G LTE</option>
+<option disabled="">----------------------- Promotional -----------------------</option> 
+<option>$30 UL Web Text 5Gb 4G &amp; 100 min $0.10 Overages</option>
+ </select>  </td>
+    </tr>
+</tbody></table>
+<hr> 
+<!-- OPTION BUTTON--> 
+<input type="radio" name="reasonRATE" value="IMM" id="IMM" checked="">Immidiately . 
+<input type="radio" name="reasonRATE" value="MID" id="MID">Mid-cycle . 
+<input type="radio" name="reasonRATE" value="FUT" id="FUT">Future <br> 
+<hr> 
+<!-- CHECK BOXES --> 
+<input type="checkbox" id="adv1Plan" name="adv1Plan" value="0" checked="">Provided the rate plan overview. <br> 
+<input type="checkbox" id="adv3Plan" name="adv3Plan" value="2">Advised to change it back to the original plan:<br> 
+</form> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divSimChange" class="SIMChange" style="visibility: hidden; top: 210px;"> 
+<form><br> 
+<table> 
+<tbody> 
+<tr> 
+<td valign="bottom">SIM:</td> 
+<td valign="bottom"><input type="text" name="txtSim" id="txtSim" size="30"></td> 
+</tr> 
+<tr> 
+<td valign="bottom">IMEI:</td> 
+<td valign="bottom"><input type="text" name="txtIMEI" id="txtIMEI" size="25"></td> 
+</tr> 
+</tbody> 
+</table> 
+<hr> 
+<!-- OPTION BUTTON--> 
+<input type="radio" name="reasonSIM" value="REL" id="REL" checked="">Relocation . 
+<input type="radio" name="reasonSIM" value="LST" id="LST">Lost/Stolen . 
+<input type="radio" name="reasonSIM" value="NHI" id="NHI">Network/Handset Issue<br> 
+<hr> 
+<!-- CHECK BOXES --> 
+<input type="checkbox" name="adv1SIM" id="adv1SIM" value="0" checked="">If calling from the phone, the call will drop. <br> 
+<input type="checkbox" name="adv2SIM" id="adv2SIM" value="1" checked="">It may take up to 2 hours. <br> 
+<input type="checkbox" name="adv3SIM" id="adv3SIM" value="2" checked="">Turn off the device and turn it back on during the <br>two-hour time frame. <br> 
+<input type="checkbox" name="adv4SIM" id="adv4SIM" value="3" checked="">Back up contacts stored. <br> 
+</form> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divFeatures" class="FeaturesChange" style="visibility: hidden; top: 231px;"> 
+<hr> 
+<form> 
+<table> 
+<tbody> 
+<tr> 
+<td width="320"> </td> 
+<td width="42">Add</td> 
+<td>Remove</td> 
+<td><p_hidden>a</p_hidden>N/A</td> 
+</tr> 
+</tbody> 
+</table> 
+<select id="myFeatureSelect1"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+</select> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="addF1" name="features1" value=" Added" checked=""> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeF1" name="features1" value="Removed"> 
+<p_hidden>aaaa</p_hidden> 
+<input type="radio" id="naF1" name="features1" checked="" value="Rem"> 
+<hr> 
+<select id="myFeatureSelect2">
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+</select> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="addF2" name="features2" value=" Added" checked=""> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeF2" name="features2" value=" Removed"> 
+<p_hidden>aaaa</p_hidden> 
+<input type="radio" id="naF2" name="features2" checked="" value="Rem"> 
+<hr> 
+<select id="myFeatureSelect3"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+</select> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="addF3" name="features3" value=" Added" checked=""> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeF3" name="features3" value=" Removed"> 
+<p_hidden>aaaa</p_hidden> 
+<input type="radio" id="naF3" name="features3" checked="" value="0"> 
+<hr> 
+<select id="myFeatureSelect4"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+</select> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="addF4" name="features4" value=" Added" checked=""> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeF4" name="features4" value=" Removed"> 
+<p_hidden>aaaa</p_hidden> 
+<input type="radio" id="naF4" name="features4" checked="" value="Rem"> 
+<hr> 
+<select id="myFeatureSelect5"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option>
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+</select> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="addF5" name="features5" value=" Added" checked=""> 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeF5" name="features5" value=" Removed"> 
+<p_hidden>aaaa</p_hidden> 
+<input type="radio" id="naF5" name="features5" checked="" value="Rem"> 
+<hr> 
+<input type="checkbox" name="adv1FEAT" id="adv1FEAT" value="A text message will be sent after the feature changes." checked="">A text message will be sent after the feature changes. <br> 
+<input type="checkbox" name="adv2FEAT" id="adv2FEAT" value="It may take up to 2 hours.">It may take up to 2 hours. <br> 
+</form> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divMakePayment" class="MakePayment" style="visibility: hidden; top: 231px;"> 
+<form><br> 
+Method: 
+<select id="myPaymentSelect" onchange="hideRefillArea()"> 
+<option>Credit Card</option> 
+<option>Debit Card</option> 
+<option>E-Check</option> 
+<option>Refill Card/ E-Pin</option> 
+</select><br> 
+<textarea id="areaEpin" rows="2" cols="71" style="visibility: hidden;"></textarea> 
+</form> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divEmptyTemplate" class="EmptyTemplate" style="visibility: visible; top: 231px;"> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divScratch" class="Scratch" style="visibility: visible; top: 231px; left: 0px;"> 
+<textarea id="areaScratch" rows="7" cols="72" style="width: 542px;"></textarea> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divDatapasses" class="Datapasses" style="visibility: hidden; top: 231px;"> 
+<select id="myDatapassSelect"> 
+<option>$1 | 1 Hour 10 MB (capped)</option> 
+<option>$5 | 1-Day 500 MB</option> 
+<option>$10 | 1-Week 1 GB</option> 
+<option>$30 | 30-Day 3 GB</option> 
+<option>$40 | 30-Day 5 GB</option> 
+<option>$50 | 30-Day 7 GB</option> 
+<option disabled=""></option> 
+<option>5$ Pay as you go | 1-Day 500 MB </option> 
+<option>10$ Pay as you go | 7-Day 1 GB </option> 
+<option>10$ Pay as you go | 7-Day UL Talk &amp; Text </option> 
+</select> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divTrouble" class="Trouble" style="visibility: hidden; top: 231px;"> 
+<select id="myTroubleSelect"> 
+<option>Slow Data Issues</option> 
+<option>No Data Access</option> 
+<option>Calling Issues </option> 
+<option>SMS Issues</option> 
+<option>MMS Issues</option> 
+<option>Signal Troubleshooting</option> 
+<option>Battery problems</option> 
+<option>Crash Freeze</option> 
+<option>Audio Troubleshooting</option> 
+<option>SIM CARD errors</option> 
+<option>Voicemail Troubleshooting</option> 
+</select><br> 
+<input type="checkbox" id="advTS1" name="advTS1" value="Outgoing ">Outgoing <br> 
+<input type="checkbox" id="advTS2" name="advTS1" value="Incoming ">Incoming <br> 
+<input type="checkbox" id="advTS3" name="advTS1" value="Advised to call from alternate line">Advised to call from alternate line<br> 
+<input type="checkbox" id="advTS4" name="advTS1" value="Advised to Power-cycle the device">Advised to Power-cycle the device<br> 
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divPortConv" class="PortConv" style="visibility: hidden; top: 231px;"> 
+<input id="optPortConv1" type="radio" name="PortConv" value="Port-In to Replace an Existing Number" checked="" onclick="PortConvClick()">Port-In to Replace an Existing Number <br>
+<input id="optPortConv2" type="radio" name="PortConv" value="Pay in Advance to postpaid conversions" onclick="PortConvClick()">Pay in Advance to postpaid conversion <br> 
+<hr> 
+<div id="sub1" class="sub1" style="visibility: hidden;"> 
+Temporary Number: <input type="text" id="txtTemporal" name="txtTemporal"><br> 
+Requested Number: <input type="text" id="txtRequested" name="txtRequested"><br> 
+Account Number:<p_hidden>....</p_hidden> <input type="text" id="txtAccount" name="txtAccount" size="15"><br> 
+Pin:<p_hidden>...........................</p_hidden> <input type="text" id="txtPinNumber" name="txtPinNumber" size="5"><br> <br> 
+<input type="checkbox" id="advPort1" name="advPort" checked="" value="-Dual service will last no longer than 24 hours.">-Dual service will last no longer than 24 hours.<br> 
+<input type="checkbox" id="advPort2" name="advPort" checked="" value="-Timeframe 24 hours.">-Timeframe 24 hours. <br> 
+<input type="checkbox" id="advPort3" name="advPort" checked="" value="-Voicemail will be unavailable until the port in is complete.">-Voicemail will be unavailable until the port in is complete.<br> 
+<input type="checkbox" id="advPort4" name="advPort" checked="" value="-Call may drop if calling from one of the numbers.">-Call may drop if calling from one of the numbers.<br> 
+</div> 
+
+<div id="sub2" class="sub2" style="visibility: hidden;"> 
+Postpaid Number: <input type="text" id="txtPostpaid" name="txtPostpaid"><br> 
+Prepaid Number: <p_hidden>..</p_hidden><input type="text" id="txtPrepaid" name="txtPrepaid"><br><br> 
+<input type="checkbox" id="advConv1" name="advPort" value="-Balances on Pay in Advance accounts do not convert to postpaid." checked="">-Balances on Pay in Advance accounts do not convert to postpaid.<br> 
+<input type="checkbox" id="advConv2" name="advPort" value="-If wanted to use My T-Mobile, customer must register again.">-If wanted to use My T-Mobile, customer must register again.<br> 
+<input type="checkbox" id="advConv3" name="advPort" value="-Backup phonebook contacts" checked="">-Backup phonebook contacts<br> 
+<input type="checkbox" id="advConv4" name="advPort" value="-Automated porting process may take up to 2 hours to complete." checked="">-Automated porting process may take up to 2 hours to complete.<br> 
+<input type="checkbox" id="advConv5" name="advPort" value="-A sms will be sent indicating that transfer has been completed." checked="">-A sms will be sent indicating that transfer has been completed.<br> 
+</div> 
+
+</div> 
+
+<!-- ___________________________________________________________ --> 
+
+<form> 
+<div id="divMemoBtn" class="MemoBtn" style="visibility: visible; top: 370px;"> 
+<button id="btngenerate" class="green" type="button" onclick="generate_note()">GENERATE</button> 
+<button id="btnextra" class="blue" type="button" onclick="extra_steps()">Extra Steps</button> 
+<p_hidden> `````````````````````````````````````````````</p_hidden> 
+<input id="btnclear" class="red" type="button" onclick="clean_memo()" value="Clear Notes" style="background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgb(143, 212, 255)), to(rgb(52, 152, 219)));"> 
+</div> 
+<!-- ___________________________________________________________ --> 
+<div id="divMemo" class="Memo" style="visibility: visible; top: 408px;"> 
+<textarea id="areaGenerate" rows="15" cols="65" style="margin: 0px; height: 275px; width: 544px;"></textarea><br> 
+</div> 
+</form> 
+
+<!-- ___________________________________________________________ --> 
+
+<div id="divCustomize" class="divCustomize" style="visibility: hidden;"> 
+<table width="200" border="1"> 
+<tbody> 
+<tr> 
+<td style="left:inherit">Title Background</td> 
+<td style="left:inherit"><input onchange="colorChange('divTitle','myColor')" type="color" id="myColor"></td> 
+</tr> 
+<tr> 
+<td style="left:inherit"> Main Menu </td> 
+<td style="left:inherit"> <input onchange="colorChange('divUI','myColor2')" type="color" id="myColor2"> </td> 
+</tr> 
+<tr> 
+<td style="left:inherit"> Self Options </td> 
+<td style="left:inherit"> <input onchange="colorChange('divSelfHelpOp','myColor3')" type="color" id="myColor3"> </td> 
+</tr> 
+<tr> 
+<td style="left:inherit"> Generate and Clear </td> 
+<td style="left:inherit"> <input onchange="colorChange('divMemoBtn','myColor4')" type="color" id="myColor4"> </td> 
+</tr> 
+<tr> 
+<td style="left:inherit"> Background Image </td> 
+<td style="left:inherit"> <input id="file" type="file"> <button type="button" onclick="ReadFileName()"> Change</button></td> 
+</tr> 
+</tbody> 
+</table> 
+<div id="divSelfHelp" class="SelfHelp" style="visibility: hidden; top: 187px; left: 0px;"> 
+<div id="divSelfHelpOp" class="SelfHelpOp" style="visibility: hidden; left: 589px;"> 
+<form> 
+<button type="button" style="width:100px;height:30px" onclick="extra_steps()"> Close </button><p_hidden>aaaaaaaaa</p_hidden> Extra Steps 
+<hr> 
+<!-- --> 
+<table> 
+<tbody> 
+<tr> 
+<td valign="top" width="190"> 
+<input type="checkbox" onchange="onCheckedChange(['XS1', 'optPin1', 'optPin2'])" id="XS1" name="" value="Pin Changed">Pin Changed <br> 
+<input id="optPin1" type="radio" name="PINreason" disabled="" value="Secondary Verification" checked="">2nd Verification <br> 
+<input id="optPin2" type="radio" name="PINreason" disabled="" value="Through IVR">Through IVR<br> 
+<hr> 
+<input type="checkbox" id="XS11" name="" value="Provided Due Date:" onchange="onCheckedChange(['XS11', 'dueDate'])">Due Date: 
+<input type="date" name="dueDate" id="dueDate" disabled=""> 
+</td> 
+<td valign="center"> 
+Troubleshoot<br> 
+<input type="checkbox" id="XS3" name="" value="Account audit, plan still has data at 4G ">Account audit, plan still has data at 4G <br> 
+<input type="checkbox" id="XS4" name="" value="Plan is Paid status">Plan is Paid status<br> 
+<input type="checkbox" id="XS5" onchange="onCheckedChange(['XS5', 'optCov1', 'optCov2', 'optCov3', 'optCov4'])" name="" value="Network Audit, Coverage is:">Network Audit, Coverage is:<br> 
+<input id="optCov1" type="radio" name="Covreason" disabled="" value="Excellent" checked="">Excellent 
+<input id="optCov2" type="radio" name="Covreason" disabled="" value="Very Strong">Very Strong <br> 
+<input id="optCov3" type="radio" name="Covreason" disabled="" value="Good">Good 
+<p_hidden>aaa</p_hidden><input id="optCov4" type="radio" name="Covreason" disabled="" value="Satisfactory">Satisfactory <br> 
+</td> 
+</tr> 
+</tbody> 
+</table> 
+<hr> 
+<table> 
+<tbody> 
+<tr> 
+<td valign="center"> 
+<input type="checkbox" id="XS6" name="" onchange="onCheckedChange(['XS6', 'optTrans1', 'optTrans2', 'optTrans3', 'optTrans4', 'optTrans5', 'txtDep'])" value="Transferred to:"> Transferred to:<br> 
+<input id="optTrans1" type="radio" name="Transreason" disabled="" value="Tech Support for further assistance." checked="">Tech Support.<br> 
+<input id="optTrans2" type="radio" name="Transreason" disabled="" value="Postpaid">Postpaid<br> 
+<input id="optTrans3" type="radio" name="Transreason" disabled="" value="Refill Center IVR">Refill Center IVR <br> 
+<input id="optTrans4" type="radio" name="Transreason" disabled="" value="Telesales">Telesales<br> 
+<input id="optTrans5" type="radio" name="Transreason" disabled="" value="..."> Other 
+<input id="txtDep" type="text" name="txtDep" disabled="" size="12"> 
+</td> 
+<td valign="top"> 
+<input type="checkbox" id="XS7" name="" value="Adjustments" onchange="onCheckedChange(['XS7', 'myAdjustSelected', 'amount', 'txtAdjReason'])">Adjustments
+<select id="myAdjustSelected" disabled=""> 
+<option>Credited</option> 
+<option>Debited</option> 
+</select><br><br> 
+Amount $ <input id="amount" type="text" align="right" name="txtAmount" size="7" disabled=""> <br> 
+Reason <input type="text" id="txtAdjReason" name="txtAdjReason" disabled=""> 
+</td> 
+</tr> 
+</tbody> 
+</table> 
+<hr> 
+<table> 
+<tbody> 
+<tr> 
+<td valign="center"><input type="checkbox" id="XSRef" name="" value="Redeemed E-PINs:" onchange="onCheckedChange(['XSRef', 'areaEpinXS'])">Redeemed E-PINs:</td> 
+<td valign="center"> <textarea id="areaEpinXS" rows="1" cols="20" disabled=""></textarea></td> 
+</tr> 
+</tbody> 
+</table> 
+<hr> 
+<input type="checkbox" id="XS8" name="" value="Removed " onchange="onCheckedChange(['XS8','myRemovedAuto'])">Removed 
+<select id="myRemovedAuto" disabled=""> 
+<option>Auto-pay</option> 
+<option>Auto-Refill</option> 
+</select> option. 
+<hr> 
+<u><p> Self Help Options</p> </u> 
+<!-- CHECK BOXES --> 
+<input type="checkbox" id="SH1" name="adv1Pay" value="*233.">*233. <br> 
+<input type="checkbox" id="SH2" name="adv2Pay" value="*8646.">*8646. <br> 
+<input type="checkbox" id="SH3" name="adv3Pay" value="Text to refill.">Text to refill. <br> 
+<input type="checkbox" id="SH4" name="adv4Pay" value="#225#">#225#. <br> 
+<input type="checkbox" id="SH5" name="adv5Pay" value="#999#.">#999#. <br> 
+<input type="checkbox" id="SH6" name="adv6Pay" value="#MEX# | #639#.">#MEX# | #639#. <br> 
+<input type="checkbox" id="SH7" name="adv7Pay" value="#WEB# | #932#.">#WEB# | #932#. <br> 
+<input type="checkbox" id="SH8" name="adv8Pay" value="#NUM# | #686#.">#NUM# | #686#. 
+<hr> 
+<input type="checkbox" id="SH9" name="adv9Pay" value="my.t-mobile.com.">my.t-mobile.com. <br> 
+<input type="checkbox" id="SH10" name="adv11Pay" value="t-mobile.com.">t-mobile.com. <br> 
+<input type="checkbox" id="SH11" name="adv12Pay" value="t-mobile.com/connectme">t-mobile.com/connectme.<br> 
+<input type="checkbox" id="SH12" name="adv13Pay" value="myaccount app.">myaccount app.<br> 
+<input type="checkbox" id="SH13" name="adv14Pay" value="*TUNE | *8863.">*TUNE | *8863.<br> 
+<input type="checkbox" id="SH14" name="adv15Pay" value="#PWO# | #796#.">#PWO# | #796#.<br> 
+<input type="checkbox" id="SH15" name="adv16Pay" value="#PWD# | #793#.">#PWD# | #793#.<br> 
+<div id="divTable" class="Table"> 
+<center>Features changes </center> 
+<select id="myFeatureSelectA"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+<option disabled=""></option> 
+<option>5$ Pay as you go | 1-Day 500 MB </option> 
+<option>10$ Pay as you go | 7-Day 1 GB </option> 
+<option>10$ Pay as you go | 7-Day UL Talk &amp; Text </option> 
+
+</select> 
+<p_hidden>a</p_hidden> 
+<input type="radio" id="addXSF1" name="features1" value="Added" checked="">Add 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeXSF1" name="features1" value="Removed">Remove 
+<p_hidden>aa</p_hidden> 
+<input type="radio" id="naXSF1" name="features1" checked="" value="...">N/A 
+<hr> 
+<select id="myFeatureSelectB"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option>
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+<option disabled=""></option> 
+<option>5$ Pay as you go | 1-Day 500 MB </option> 
+<option>10$ Pay as you go | 7-Day 1 GB </option> 
+<option>10$ Pay as you go | 7-Day UL Talk &amp; Text </option> 
+</select> 
+<p_hidden>a</p_hidden> 
+<input type="radio" id="addXSF2" name="features2" value="Added" checked="">Add 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeXSF2" name="features2" value="Removed">Remove 
+<p_hidden>aa</p_hidden> 
+<input type="radio" id="naXSF2" name="features2" checked="" value="...">N/A 
+<hr> 
+<select id="myFeatureSelectC"> 
+<option>Blackberry Optional Feature ($0)</option> 
+<option>Block All chargeable Content Downloads</option> 
+<option>Bar Outgoing International Calls</option> 
+<option>Caller Tunes Free</option> 
+<option>Caller Tunes $1.49</option> 
+<option>Caller Tunes Premium $3.99</option> 
+<option>Simply Prepaid Mexico Landline $5 </option>
+<option>Simply Prepaid Mexico &amp; Canada UNL $5 </option>
+<option>Stateside International Talk SITT $10</option> 
+<option>Stateside International Talk w/Mobile 15$</option> 
+<option>International Roaming</option> 
+<option>Caller ID presentation</option> 
+<option>Premium Handset Protection</option> 
+<option>Rhapsody Premier</option> 
+<option>Rhapsody UnRadio</option> 
+<option>SCORE!</option> 
+<option>Web Guard Content Control</option> 
+<option>Voice Mail</option> 
+<option disabled=""></option> 
+<option>5$ Pay as you go | 1-Day 500 MB </option> 
+<option>10$ Pay as you go | 7-Day 1 GB </option> 
+<option>10$ Pay as you go | 7-Day UL Talk &amp; Text </option> 
+</select> 
+<p_hidden>a</p_hidden> 
+<input type="radio" id="addXSF3" name="features3" value="Added" checked="">Add 
+<p_hidden>aaa</p_hidden> 
+<input type="radio" id="removeXSF3" name="features3" value="Removed">Remove 
+<p_hidden>aa</p_hidden> 
+<input type="radio" id="naXSF3" name="features3" checked="" value="...">N/A 
+<hr> 
+</div> 
+
+</form> 
+</div> 
+</div> 
+</div> 
+
+<!-- ________________SCRIPT________________ --> 
+
+<script> 
+function colorChange(x,y) { 
+document.getElementById(x).style.backgroundColor= document.getElementById(y).value; 
+} 
+<!-- ___________________________________________________________ --> 
+function PlayEvent(){ 
+document.getElementById("divSelfHelpOp").style.visibility="visible"; 
+xtraleft-=1; 
+document.getElementById("divSelfHelpOp").style.left= xtraleft +"px"; 
+} 
+<!-- ___________________________________________________________ --> 
+function PlayEventReverse(){ 
+xtraleft+=1; 
+document.getElementById("divSelfHelpOp").style.left= xtraleft +"px"; 
+if (xtraleft==499) document.getElementById("divSelfHelpOp").style.visibility="hidden"; 
+} 
+<!-- ___________________________________________________________ --> 
+function extra_steps(){ 
+if (bit == 0){ 
+xtraleft= 580; 
+var i; 
+<!-- Start time | Animation total time | Speed Thread execution --> 
+for (i = 1; i < 480; i+=1) { 
+setTimeout("PlayEvent()", i); 
+} 
+bit = 1; 
+} 
+else{ 
+xtraleft= 110; 
+var i; 
+<!-- Start time | Animation total time | Speed Thread execution --> 
+for (i = 1; i < 480; i+=1) { 
+setTimeout("PlayEventReverse()", i); 
+} 
+bit = 0; 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function CustomChange() { 
+if (document.getElementById("chkCustomize").checked==false){ 
+document.getElementById("divCustomize").style.visibility="hidden"; 
+} 
+else { 
+document.getElementById("divCustomize").style.visibility= "visible"; 
+} 
+} 
+<!-- ___________________________________________________________ -->
+function PortConvClick(){ 
+if (document.getElementById("optPortConv1").checked == true){ 
+document.getElementById("sub1").style.visibility="visible"; 
+document.getElementById("sub2").style.visibility="hidden"; 
+} 
+else { 
+document.getElementById("sub1").style.visibility="hidden"; 
+document.getElementById("sub2").style.visibility="visible"; 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+var global1 = 9; 
+var bit = 0; 
+var xtraleft; 
+var areYouSure = 0; 
+<!-- ___________________________________________________________ --> 
+function DoThis(varDiv,varGlobal) { 
+<!-- HIDE FORMs FIRST --> 
+functionHideforms() 
+<!-- SHOW FORM NEEDED --> 
+functionShowforms() 
+document.getElementById(varDiv).style.visibility= "visible"; 
+document.getElementById("divScratch").style.visibility="visible"; 
+document.getElementById("areaEpin").style.visibility = "hidden"; 
+global1=varGlobal; 
+var titleHeight= document.getElementById("divTitle").clientHeight ; 
+var uiHeight = document.getElementById("divUI").clientHeight; 
+var numberHeight = document.getElementById(varDiv).clientHeight; 
+var scratchHeight =document.getElementById("divScratch").clientHeight; 
+var memobtnHeight = document.getElementById("divMemoBtn").clientHeight; 
+var memoHeight = document.getElementById("divMemo").clientHeight; 
+<!-- TOP VALUES ARE IN PX & HEIGHT VALUES ARE INTEGER --> 
+document.getElementById(varDiv).style.top = (titleHeight + uiHeight) + "px"; 
+document.getElementById("divScratch").style.top = (titleHeight) + uiHeight + numberHeight + "px"; 
+document.getElementById("divMemoBtn").style.top = (titleHeight + uiHeight + numberHeight)+ scratchHeight +"px"; 
+document.getElementById("divMemo").style.top = (titleHeight + uiHeight + numberHeight)+ scratchHeight + memobtnHeight + "px"; 
+<!-- VALUE TESTER --> 
+<!-- document.getElementById("txtAgent").value = document.getElementById("divNumChange").style.top; --> 
+} 
+<!-- ___________________________________________________________ --> 
+function fncNumChange() 
+{ 
+DoThis("divNumChange",1) 
+} 
+<!-- ___________________________________________________________ --> 
+function fncRateChange(){ 
+DoThis("divRateChange",2) 
+} 
+<!-- ___________________________________________________________ --> 
+function fncSimChange(){ 
+DoThis("divSimChange",3) 
+} 
+<!-- ___________________________________________________________ --> 
+function fncFeatures() { 
+DoThis("divFeatures",4) 
+} 
+<!-- ___________________________________________________________ --> 
+function fncMakePayment() { 
+DoThis("divMakePayment",5) 
+hideRefillArea() 
+} 
+<!-- ___________________________________________________________ --> 
+function fncDataPasses(){ 
+DoThis("divDatapasses",6) 
+document.getElementById("areaEpin").style.visibility = "hidden"; 
+} 
+<!-- ___________________________________________________________ --> 
+function fncTrouble(){ 
+DoThis("divTrouble",7) 
+document.getElementById("areaEpin").style.visibility = "hidden"; 
+} 
+<!-- ___________________________________________________________ --> 
+function fncPortConv(){ 
+DoThis("divPortConv",8) 
+PortConvClick() 
+document.getElementById("areaEpin").style.visibility = "hidden"; 
+} 
+<!-- ___________________________________________________________ --> 
+function fncEmptyTemplate() { 
+DoThis("divEmptyTemplate",9) 
+} 
+<!-- ___________________________________________________________ --> 
+function functionHideforms() { 
+document.getElementById("divNumChange").style.visibility="hidden"; 
+document.getElementById("divSimChange").style.visibility="hidden"; 
+document.getElementById("divRateChange").style.visibility="hidden"; 
+document.getElementById("divFeatures").style.visibility="hidden"; 
+document.getElementById("divMakePayment").style.visibility="hidden";
+document.getElementById("divDatapasses").style.visibility="hidden"; 
+document.getElementById("divTrouble").style.visibility="hidden"; 
+document.getElementById("divPortConv").style.visibility="hidden"; 
+document.getElementById("sub1").style.visibility="hidden"; 
+document.getElementById("sub2").style.visibility="hidden"; 
+document.getElementById("divMemoBtn").style.visibility="hidden"; 
+document.getElementById("divEmptyTemplate").style.visibility="hidden"; 
+document.getElementById("divScratch").style.visibility="hidden"; 
+} 
+<!-- ___________________________________________________________ --> 
+function functionShowforms() { 
+document.getElementById("divSelfHelp").style.visibility = "hidden"; <!-- SELF HELP SHOW/HIDE --> 
+document.getElementById("divMemo").style.visibility = "visible"; 
+document.getElementById("divMemoBtn").style.visibility = "visible"; 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_note() { 
+document.getElementById("areaGenerate").value = global1; 
+<!-- global1 evaluates boton pressed --> 
+<!-- each case generates a different note type--> 
+<!-- MSISDN change --> 
+if (global1 ==1){ 
+generate_number() 
+} 
+if (global1 ==2){ 
+generate_plan() 
+} 
+if (global1 ==3){ 
+generate_sim() 
+} 
+if (global1 ==4){ 
+generate_feature() 
+} 
+if (global1 ==5){ 
+generate_payment() 
+} 
+if (global1 ==6){ 
+generate_datapass() 
+} 
+if (global1 ==7){ 
+generate_trouble() 
+} 
+if (global1 ==8){ 
+generate_PortConv() 
+} 
+if (global1 ==9){ 
+empty_template() 
+} 
+// make btnclean red 
+btnclear.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#ff1717), to(#960000))"; 
+} 
+<!-- ____________________________LOAD____________________________ --> 
+function fncLoaded() { 
+// aÃƒÆ’Ã‚Â±o mes fecha Hora 
+var timeTarget= new Date(2015, 2-1, 15, 22); // 10 pm 
+var timeTarget2= new Date(2015, 2-1, 15, 23);// 11 pm 
+var timeTarget3= new Date(2015, 2-1, 15, 0);// 0 | 12 am 
+var timeTarget4= new Date(2015, 2-1, 15, 6);// 0 | 6 am 
+var timeNow= new Date(); 
+if ( (timeNow.getHours() >= timeTarget.getHours() ) && (timeNow.getHours() <= timeTarget2.getHours() ) || (timeNow.getHours() >= timeTarget3.getHours() ) && (timeNow.getHours() <= timeTarget4.getHours() ) ){ 
+// Within the range 
+alert("in"); 
+functionHideforms() 
+document.getElementById("divSelfHelp").style.visibility= "hidden"; 
+document.getElementById("divMemo").style.visibility= "hidden"; 
+document.getElementById("divCustomize").style.visibility= "hidden"; 
+document.getElementById("divScratch").style.visibility= "hidden"; 
+document.getElementById("divSelfHelpOp").style.visibility= "hidden"; 
+document.getElementById("divUI").style.visibility= "visible"; 
+document.getElementById("divTitle").style.visibility= "visible"; 
+initiateColor('divTitle','myColor') 
+initiateColor('divUI','myColor2') 
+initiateColor('divSelfHelpOp','myColor3') 
+initiateColor('divMemoBtn','myColor4') 
+} 
+else{ 
+// Out of the range 
+document.getElementById("divUI").style.visibility= "hidden"; 
+alert("Please Wait until 10:00pm to access the Version 3.0 "); 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function REP_ID() { 
+var Agent = "\n|" + document.getElementById("txtAgent").value ; 
+return Agent; 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_number() { 
+var reason= document.getElementById("optHC").checked; 
+if (reason ==true){ 
+reason="Harrasing/Unwanted Calls"; 
+} 
+else { 
+reason="Wrong Area code"; 
+} 
+var message1="| Reason: Customer wanted to change the phone number because of "; 
+var message2="\n| Resolution Steps: Requested mobile number change. \n| Provided Advisements:\n"; 
+var advisements=""; 
+for (var i = 1; i<=10;i++){ 
+if (document.getElementById("adv" + i).checked==true) advisements+= document.getElementById("adv" + i).value + "\n"; 
+}
+var doc="\n| https://c2.t-mobile.com/docs/DOC-417387"; 
+var callerName=""; 
+callerName= document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + reason + message2 + advisements + NewSelfHelp() + doc +REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_plan() { 
+var IM= document.getElementById("IMM").checked; 
+var MI= document.getElementById("MID").checked; 
+var FD= document.getElementById("FUT").checked; 
+var Ratechange=""; 
+if (IM ==true){ 
+Ratechange="Immediately"; 
+} 
+else if (MI ==true){ 
+Ratechange="Mid-Cycle"; 
+} 
+else if (FD ==true){ 
+Ratechange="Future Dated"; 
+} 
+var old_plan = document.getElementById("myPlanSelect1").value; 
+var new_plan = document.getElementById("myPlanSelect2").value; 
+var message1="| Reason: Customer requested to change the rate plan from " + old_plan + " to the " + new_plan; 
+var message2="\n| Resolution Steps: Rate plan has been " + Ratechange +" changed to the " + new_plan + " plan. \n"; 
+var advisements=""; 
+if (document.getElementById("adv1Plan").checked==true)advisements+= "- Provided Rate Plan overview.\n"; 
+if (document.getElementById("adv3Plan").checked==true)advisements+= "- Advised to change it back to the original plan\n"; 
+var callerName=""; 
+callerName= document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+var doc="\n https://c2.t-mobile.com/docs/DOC-415770"; 
+document.getElementById("areaGenerate").value =callerName + message1 + message2 + advisements + NewSelfHelp() + doc +REP_ID();
+} 
+<!-- ___________________________________________________________ --> 
+function generate_sim() { 
+var RE= document.getElementById("REL").checked; 
+var LS= document.getElementById("LST").checked; 
+var NH= document.getElementById("NHI").checked; 
+var Reasonsim=""; 
+if (RE ==true){ 
+Reasonsim="Relocation"; 
+} 
+else if (LS ==true){ 
+Reasonsim="Lost / Stolen"; 
+} 
+else if (NH ==true){ 
+Reasonsim="Network Handset Issue"; 
+} 
+var message1="| Reason: Customer wanted to change the SIM CARD because of a " + Reasonsim + " reason."; 
+var SIM=document.getElementById("txtSim").value; 
+var message2="\n| Resolution Steps: I changed sim card, New sim card number: " + SIM ; 
+var IMEI=document.getElementById("txtIMEI").value; 
+if (IMEI==""){ 
+} else 
+{message2 +=" and updated IMEI: "+ IMEI; 
+} 
+var advisements=""; 
+if (document.getElementById("adv1SIM").checked==true) advisements+= "- If calling from the phone, the call will drop.\n"; 
+if (document.getElementById("adv2SIM").checked==true) advisements+= "- It may take up to 2 hours to complete changes.\n"; 
+if (document.getElementById("adv3SIM").checked==true) advisements+= "- Turn off the device and turn it back on during the two-hour time frame. \n"; 
+if (document.getElementById("adv4SIM").checked==true) advisements+= "- Back up contacts stored. \n"; 
+var doc="\n| https://c2.t-mobile.com/docs/DOC-415125"; 
+var callerName=""; 
+callerName= document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + message2 + "\n Advisements\n"+ advisements + NewSelfHelp() + doc +REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_feature() { 
+var message1="| Reason: Feature changes"; 
+var message2="\n| Resolution Steps:"; 
+var callerName=""; 
+callerName= document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+for(var i = 1; i<=5;i++) 
+{ 
+if (document.getElementById("naF"+ i).checked==false){
+if (document.getElementById("addF"+ i).checked==true){ 
+message2 += document.getElementById("myFeatureSelect"+ i).value + " has been" + document.getElementById("addF"+ i).value + "| \n"; 
+} else if(document.getElementById("removeF"+ i).checked==true){ 
+message2 += document.getElementById("myFeatureSelect"+ i).value + " has been" + document.getElementById("removeF"+ i).value + "| \n";
+} 
+} 
+} 
+var advisements=""; 
+for(var i = 1; i<= 2; i++) 
+{ 
+if(document.getElementById("adv" + i + "FEAT").checked == true) 
+{ 
+advisements += document.getElementById("adv" + i + "FEAT").value + "\n" ; 
+} 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + message2 + "\n Advisements\n"+ advisements + NewSelfHelp() + REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_payment() { 
+var Pay_Method = document.getElementById("myPaymentSelect").value; 
+var message1="| Reason: Customer wanted to Refill the account with a " + Pay_Method ; 
+if (document.getElementById("myPaymentSelect").selectedIndex == 3){ 
+<!-- Refill Card/ E-Pin--> 
+var message2="\n| Resolution Steps:| Redeemed epin number:\n" + document.getElementById("areaEpin").value; 
+} 
+else{ 
+var message2="\n| Resolution Steps:| Provided Options to refill:\n"; 
+} 
+var callerName=""; 
+callerName=document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+document.getElementById("areaGenerate").value =callerName + message1 + message2 + NewSelfHelp() + REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_datapass(){ 
+var Data_Pass= document.getElementById("myDatapassSelect").value; 
+var message1="| Reason: Customer wanted to add the " + Data_Pass + " datapass"; 
+var message2="\n| Resolution Steps: The (" + Data_Pass + ") datapass has been added successfully. \n"; 
+var callerName=""; 
+callerName=document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+document.getElementById("areaGenerate").value =callerName + message1 + message2 + NewSelfHelp() + REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_trouble() { 
+var Trouble = document.getElementById("myTroubleSelect").value; 
+var message1="| Reason: Customer wanted to troubleshoot " + Trouble; 
+var message2="\n| Resolution Steps: Basic Troubleshooting \n"; 
+var callerName=""; 
+callerName=document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+var advisements=""; 
+for(var i = 1; i<= 4; i++) 
+{ 
+if(document.getElementById("advTS" + i).checked == true) 
+{ 
+advisements += " " + document.getElementById("advTS" + i).value + " \n" ; 
+} 
+} 
+document.getElementById("areaGenerate").value =callerName + message1 + advisements + message2 + NewSelfHelp() + REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function generate_PortConv() { 
+var message1="| Reason: Customer called in to make a " + document.getElementById("optPortConv1").value; 
+var message2="\n| Resolution Steps: \n"; 
+var callerName=""; 
+callerName=document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+if(document.getElementById("optPortConv1").checked == true) { 
+var sms = "\nTemporary Number: " + document.getElementById("txtTemporal").value; 
+sms += "\nRequested Number:" + document.getElementById("txtRequested").value; 
+sms += "\nAccount Number:" + document.getElementById("txtAccount").value ; 
+sms += "\nPin Number:" + document.getElementById("txtPinNumber").value + "\n"; 
+var advisements="\n Advisements \n"; 
+for(var i = 1; i<= 4; i++) 
+{
+if(document.getElementById("advPort" + i).checked == true) advisements += document.getElementById("advPort" + i).value + "\n" ; 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + message2 + sms + advisements + NewSelfHelp() + REP_ID(); 
+}else if(document.getElementById("optPortConv2").checked == true) { 
+message1="| Reason: Customer called in to make a " + document.getElementById("optPortConv2").value; 
+var sms = "\nPostpaid Number: " + document.getElementById("txtPostpaid").value; 
+sms += "\nPrepaid Number:" + document.getElementById("txtPrepaid").value; 
+var advisements="\n Advisements \n"; 
+for(var i = 1; i<= 5; i++) 
+{ 
+if(document.getElementById("advConv" + i).checked == true) advisements += document.getElementById("advConv" + i).value + "\n" ; 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + message2 + sms + advisements + NewSelfHelp() + REP_ID(); 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function hideRefillArea(){ 
+var Pay_Method = document.getElementById("myPaymentSelect").selectedIndex; 
+if (Pay_Method == 3){ 
+<!-- Refill Card/ E-Pin--> 
+document.getElementById("areaEpin").style.visibility = "visible"; 
+} 
+else{ 
+document.getElementById("areaEpin").style.visibility = "hidden"; 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function empty_template() { 
+var message1="| Reason: Customer wanted to "; 
+var message2="\n| Resolution Steps: \n"; 
+var callerName=document.getElementById("txtName").value + "\n"; 
+if (document.getElementById("txtName").value==""){ 
+callerName=""; 
+} 
+document.getElementById("areaGenerate").value = callerName + message1 + message2 + NewSelfHelp() + REP_ID(); 
+} 
+<!-- ___________________________________________________________ --> 
+function clean_memo() { 
+//var areYouSure = 0 when clean ... 1 when sure? 
+if (areYouSure == 0){ 
+document.getElementById("btnclear").value="Are you sure?"; 
+areYouSure = 1; 
+} 
+else{ 
+document.getElementById("btnclear").value="Clear Notes"; 
+areYouSure = 0; 
+//RadioButtons 
+var set2 = ["optPin1", "optCov1", "optTrans1", "naXSF1", "naXSF2", "naXSF3"]; 
+// Add more RadioButtons 
+set2.push("adv1", "adv2", "adv3", "adv4", "adv5", "adv6", "adv9", "adv10", "optHC", "adv1Plan", "IMM", "REL", "adv1SIM", "adv2SIM", "adv3SIM"); 
+set2.push("adv4SIM", "naF1", "naF2", "naF3", "naF4", "naF5", "adv1FEAT", "optPortConv1", "advPort1", "advPort2", "advPort3", "advPort4", "advConv1", "advConv3", "advConv4", "advConv5"); 
+//CheckBoxes 
+var set1 = ["XS1", "XS11", "XS3", "XS4", "XS5", "XS6", "XS7", "XSRef", "XS8", "SH1", "SH2", "SH3", "SH4", "SH5", "SH6", "SH7", "SH8", "SH9", "SH10", "SH11", "SH12", "SH13", "SH14", "SH15"]; 
+//Add more CheckBoxes 
+set1.push("adv2FEAT", "adv3Plan", "adv7", "adv8", "advTS1", "advTS2", "advTS3", "advTS4", "advConv2"); 
+//DropDownMenus 
+var set3 = ["myAdjustSelected", "myRemovedAuto", "myFeatureSelectA", "myFeatureSelectB", "myFeatureSelectC"]; 
+// Add more DropDownMenus 
+set3.push("myPlanSelect1", "myPlanSelect2", "myFeatureSelect1", "myFeatureSelect2", "myFeatureSelect3", "myFeatureSelect4", "myFeatureSelect5", "myPaymentSelect", "myDatapassSelect", "myTroubleSelect"); 
+//TextBoxes 
+var set4= ["dueDate", "amount", "txtAdjReason", "areaEpinXS"]; 
+// Add more TextBoxes 
+set4.push("txtSim", "txtIMEI", "txtTemporal", "txtRequested", "txtAccount", "txtPinNumber", "txtPostpaid", "txtPrepaid", "txtName", "areaGenerate", "areaScratch", "areaEpin"); 
+for(var i = 0; i < set1.length; i++){ document.getElementById(set1[i]).checked=false;} 
+for(var j = 0; j < set2.length; j++){ document.getElementById(set2[j]).checked="1";} 
+for(var k = 0; k < set3.length; k++){ document.getElementById(set3[k]).selectedIndex="0"; } 
+for(var l = 0; l < set4.length; l++){ document.getElementById(set4[l]).value=""; }
+onCheckedChange(["XS1", "optPin1", "optPin2"]) 
+onCheckedChange(["XS11", "dueDate"]) 
+onCheckedChange(["XS5", "optCov1", "optCov2", "optCov3", "optCov4"]) 
+onCheckedChange(["XS6", "optTrans1", "optTrans2", "optTrans3", "optTrans4", "optTrans5", "txtDep"]) 
+onCheckedChange(["XS7", "myAdjustSelected", "amount", "txtAdjReason"]) 
+onCheckedChange(["XSRef", "areaEpinXS"]) 
+onCheckedChange(["XS8","myRemovedAuto"]) 
+hideRefillArea() 
+if (global1 == 8){ 
+PortConvClick() 
+} 
+// make btnclean blue 
+btnclear.style.background = "-webkit-gradient(linear, 0% 0%, 0% 100%, from(#8fd4ff), to(#3498db))"; 
+fncEmptyTemplate();
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function initiateColor(varDiv,varColor) { 
+var x = window.getComputedStyle(document.getElementById(varDiv),null).backgroundColor; 
+document.getElementById(varColor).value=colorToHex(x); 
+} 
+<!-- ___________________________________________________________ --> 
+function colorToHex(color) { 
+if (color.substr(0, 1) === '#') { 
+return color; 
+} 
+var digits = /(.*?)rgb\((\d+), (\d+), (\d+)\)/.exec(color); 
+var red = parseInt(digits[2]); 
+var green = parseInt(digits[3]); 
+var blue = parseInt(digits[4]); 
+var rgb = blue | (green << 8) | (red << 16); 
+return digits[1] + '#' + rgb.toString(16); 
+}; 
+<!-- ___________________________________________________________ --> 
+function ReadFileName() { 
+var xpath = document.getElementById("file").value; 
+if (xpath!=""){ 
+var y = xpath.slice(12); 
+document.body.style.backgroundImage="url('\\ " + y + "')"; 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function onCheckedChange(arrayP){ 
+var checkobject = document.getElementById(arrayP[0]).checked; 
+if(checkobject == true){ 
+for(var i = 1; i < arrayP.length; i++){ 
+document.getElementById(arrayP[i]).removeAttribute("disabled"); 
+} 
+} 
+else{ 
+for(var i = 1; i < arrayP.length; i++){ 
+document.getElementById(arrayP[i]).disabled="true"; 
+} 
+} 
+} 
+<!-- ___________________________________________________________ --> 
+function NewSelfHelp(){ 
+var sms = ""; 
+var arrayP = ["XS1", "optPin1", "optPin2", "XS11", "dueDate", "XS3", "XS4", "XS5", "optCov1", "optCov2", "optCov3", "optCov4", "XS6", "optTrans1", "optTrans2", "optTrans3"]; 
+arrayP.push("optTrans4", "optTrans5", "txtDep", "XS7", "myAdjustSelected", "amount", "txtAdjReason", "XSRef", "areaEpinXS", "XS8", "myRemovedAuto"); 
+arrayP.push("SH1", "SH2", "SH3", "SH4", "SH5", "SH6", "SH7", "SH8", "SH9", "SH10", "SH11", "SH12", "SH13", "SH14", "SH15"); 
+arrayP.push("myFeatureSelectA", "addXSF1", "removeXSF1", "naXSF1", "myFeatureSelectB", "addXSF2", "removeXSF2", "naXSF2", "myFeatureSelectC", "addXSF3", "removeXSF3", "naXSF3"); 
+// ------------------------------- PIN VERIFICATION 
+for(var i = 0; i <= 2; i++){ 
+if (document.getElementById(arrayP[i]).checked==true && document.getElementById(arrayP[i]).disabled==false){ 
+sms = sms +" "+ document.getElementById(arrayP[i]).value; 
+} 
+} 
+// ------------------------------- DUE DATE | 3 | 4 | 
+if (document.getElementById(arrayP[3]).checked==true && document.getElementById(arrayP[3]).disabled==false){ 
+sms = sms +" \n"+ document.getElementById(arrayP[3]).value +" "+ document.getElementById(arrayP[4]).value; 
+} 
+// ------------------------------- TROUBLESHOOT 
+if (document.getElementById(arrayP[5]).checked==true || document.getElementById(arrayP[6]).checked==true || document.getElementById(arrayP[7]).checked==true) sms = sms + "\n Troubleshoot" 
+for(var i = 5; i <= 7; i++){ 
+if (document.getElementById(arrayP[i]).checked==true && document.getElementById(arrayP[i]).disabled==false){ 
+sms = sms +" \n"+ document.getElementById(arrayP[i]).value; 
+} 
+}
+for(var i = 8; i <= 11; i++){ 
+if (document.getElementById(arrayP[i]).checked==true && document.getElementById(arrayP[i]).disabled==false){ 
+sms = sms +" "+ document.getElementById(arrayP[i]).value; 
+} 
+if (i==11) sms = sms + "\n"; 
+} 
+// -------------------------------TRANSFERS 
+for(var i = 12; i <= 17; i++){ 
+if (document.getElementById(arrayP[i]).checked==true && document.getElementById(arrayP[i]).disabled==false){ 
+sms = sms +" "+ document.getElementById(arrayP[i]).value; 
+} 
+if (i==17) sms= sms + document.getElementById(arrayP[18]).value; 
+} 
+// -------------------------------ADJUSTMENTS 
+if (document.getElementById(arrayP[19]).checked==true){ 
+sms = sms + "\n Adjustments " + document.getElementById(arrayP[20]).value + " $" + document.getElementById(arrayP[21]).value +", Reason: " + document.getElementById(arrayP[22]).value; 
+} 
+// -------------------------------REDEEM EPIN 
+if (document.getElementById(arrayP[23]).checked==true) sms = sms + "\n Redeemed E-PINs " + document.getElementById(arrayP[24]).value; 
+// -------------------------------REFILL AUTOPAY|REFILL. 
+if (document.getElementById(arrayP[25]).checked==true){ 
+sms = sms + "\n Removed " + document.getElementById(arrayP[26]).value + " option."; 
+} 
+// -------------------------------FEATURES. 
+if (document.getElementById(arrayP[45]).checked==false){ 
+var modification = ""; 
+if (document.getElementById(arrayP[43]).checked==true) modification = "Added "; 
+if (document.getElementById(arrayP[44]).checked==true) modification = "Removed "; 
+sms = sms + "\n" + modification + document.getElementById(arrayP[42]).value + " option."; 
+} 
+if (document.getElementById(arrayP[49]).checked==false){ 
+var modification = ""; 
+if (document.getElementById(arrayP[47]).checked==true) modification = "Added "; 
+if (document.getElementById(arrayP[48]).checked==true) modification = "Removed "; 
+sms = sms + "\n" + modification + document.getElementById(arrayP[46]).value + " option."; 
+} 
+if (document.getElementById(arrayP[53]).checked==false){ 
+var modification = ""; 
+if (document.getElementById(arrayP[51]).checked==true) modification = "Added "; 
+if (document.getElementById(arrayP[52]).checked==true) modification = "Removed "; 
+sms = sms + "\n" + modification + document.getElementById(arrayP[50]).value + " option."; 
+} 
+// -------------------------------SELFHELPOPTIONS 
+var isThereSH= false; 
+for(var i = 27; i <= 41; i++){ 
+if (document.getElementById(arrayP[i]).checked==true && isThereSH==false){ 
+isThereSH=true; 
+sms = sms +" \n Self Help Options:"; 
+} 
+} 
+for(var i = 27; i <= 41; i++){ 
+if (document.getElementById(arrayP[i]).checked==true){ 
+sms = sms +" \n"+ document.getElementById(arrayP[i]).value; 
+} 
+} 
+return sms; 
+} 
+</script> 
+
+</div>
+
+
+</body></html>

@@ -1,0 +1,1240 @@
+<html>
+    <head>
+        <title>TIME</title>
+        <style> 
+
+            html,body{ 
+                margin:0; 
+                padding: 0;
+            } 
+            div.topRibbon{
+                background-image: -webkit-linear-gradient(top, #000000, #8c8c8c); 
+                padding: 0px;
+                margin: 0px;
+
+                width: 360px; 
+                height: 50px; 
+                position: fixed;
+                left: 0px;
+                top: 0px;
+               /* border-radius: 10px 10px 0px 0px;*/
+/*
+                  document.getElementById("divTime").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+                  document.getElementById("divTime3").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+                  document.getElementById("divTime4").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+
+red b30000 ff6666 | 330000
+blue = 0059b3 66b3ff |001a33
+green = 00b300 66ff66 |0a090a
+*/
+            }
+            div.panel1{
+                background-image: -webkit-linear-gradient(top,  #0059b3, #66b3ff);
+ 
+                padding: 0px;
+                margin: 0px;
+
+                width: 360px; 
+                height: 88px; 
+                position: fixed;
+                left: 0px;
+                top: 80px;
+              /* border-radius: 10px 10px 0px 0px;*/
+
+
+            }
+
+            
+
+            div.divTime{ 
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                background-image: -webkit-linear-gradient(top, #1ac6ff, #b3ecff); 
+                opacity:0.85; 
+                width: 165px; 
+                height: 55px; 
+                position: fixed;
+                left: 700px;
+                top: 0px;
+                border-radius: 10px 10px 0px 0px;
+            } 
+
+            div.divTime2{ 
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+
+                background-image: -webkit-linear-gradient(top, #1ac6ff, #b3ecff); 
+                opacity:0.85; 
+                width: 165px; 
+                height: 210px; 
+                position: fixed;
+                left: 700px;
+                top: 0px;
+                border-radius: 0px 0px 0px 0px;
+
+            } 
+
+            div.divTime3{ 
+
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                background-image: -webkit-linear-gradient(top, #1ac6ff, #b3ecff); 
+                opacity:0.85; 
+                width: 165px; 
+                height: 100px; 
+                position: fixed;
+                left: 700px;
+                top: 0px;
+                border-radius: 0px 0px 0px 0px;
+            } 
+            
+            div.divTime4{ 
+                padding-bottom: 5px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                background-image: -webkit-linear-gradient(top, #1ac6ff, #b3ecff); 
+                opacity:0.85; 
+                width: 165px; 
+                height: 245px; 
+                position: fixed;
+                left: 700px;
+                top: 0px;
+                border-radius: 0px 0px 10px 10px;
+            } 
+
+            hr {
+                border-color: #fffff0;
+            }
+            
+            input{ /*
+                font-family: "Tahoma"; 
+                font-size: 15px; 
+            */} 
+
+            select{ 
+                font-family: "Tahoma"; 
+                font-size: 15px; 
+            } 
+
+         
+           
+            body { 
+                font-family: "Candara"; 
+                font-size: 18px; 
+                background-color: #000000; 
+                background-size:1982px 1300px; 
+                background-repeat: no-repeat; 
+                color: #FFFFFF; 
+            } 
+
+            button.tabclassBlue{ 
+                background-image: -webkit-linear-gradient(top, #0059b3, #66b3ff); 
+
+                background-color: gray;
+                border-radius: 0px; 
+                /*text-shadow: 2px 4px 4px #ffffff; */
+                font-family: Candara; 
+                color: #FFFFFF; 
+                font-size: 12x; 
+                padding: 0px 0px 0px 0px; 
+                border: solid #001a33 1px;
+                text-decoration: none; 
+                position: fixed;
+            } 
+
+              button.tabclassRed{ 
+                background-image: -webkit-linear-gradient(top, #b30000, #ff6666); 
+
+                background-color: gray;
+                border-radius: 0px; 
+                /*text-shadow: 2px 4px 4px #ffffff; */
+                font-family: Candara; 
+                color: #FFFFFF; 
+                font-size: 12x; 
+                padding: 0px 0px 0px 0px; 
+                border: solid #330000 1px;
+                text-decoration: none; 
+                position: fixed;
+            } 
+            button.tabclassGreen{ 
+                background-image: -webkit-linear-gradient(top, #00b300, #66ff66); 
+
+                background-color: gray;
+                border-radius: 0px; 
+                /*text-shadow: 2px 4px 4px #ffffff; */
+                font-family: Candara; 
+                color: #FFFFFF; 
+                font-size: 12x; 
+                padding: 0px 0px 0px 0px; 
+                border: solid #0a090a 1px;
+                text-decoration: none; 
+                position: fixed;
+            } 
+
+
+            button.tabclassBlue:hover { 
+                background-image: -webkit-linear-gradient(top, #b3ffc6, #0066cc); 
+                                text-shadow: 2px 4px 4px #ffffff; 
+
+            }
+            button.tabclassGreen:hover { 
+                background-image: -webkit-linear-gradient(top, #d9ffb3, #00cc00); 
+                                text-shadow: 2px 4px 4px #ffffff; 
+
+            }
+
+            button.tabclassRed:hover { 
+                background-image: -webkit-linear-gradient(top, #ffb3b3, #cc0000); 
+                                text-shadow: 2px 4px 4px #ffffff; 
+
+/*
+red b30000 ff6666 | 330000  | ffb3b3 cc0000
+blue = 0059b3 66b3ff |001a33 | b3ffc6 0066cc
+green = 00b300 66ff66 |0a090a | d9ffb3 00cc00
+*/
+            } 
+            
+            #areaEpin{ 
+                resize:none; 
+            } 
+  
+            input.time{
+                font-family: "Tahoma"; 
+                font-size: 10px ; 
+                height: 20px;
+                padding: 0px;
+            }
+
+            p.other{
+
+                font-family: "Tahoma"; 
+                font-size: 13px ; 
+                height: 20px;
+                color: #000000;
+            }            
+        
+            p.other2{
+                padding: 0px;
+                margin: 1px;
+                font-family: "Tahoma"; 
+                font-size: 13px ; 
+                height: 20px;
+                color: #000000;
+            }
+            p.Date1{
+                color: white;
+            }
+            p.Time1{
+                color: white;
+            }
+            p.Date2{
+                color: white;
+            }
+            p.Time2{
+                color: white;
+            }
+            
+
+        </style> 
+
+        <script src="moment.js"></script>
+        <script src="moment-timezone.js"></script>
+        <script src="moment-timezone-with-data.js"></script>
+        <script src="moment-timezone-with-data-2012-2022.js"></script>
+
+        
+        <link href="js/jquery-ui.css" rel="stylesheet">
+        <script type="text/javascript" src = "js/jquery-3.4.1.min.js"></script>
+
+    </head>
+
+    <body onload="fncOnload()">
+    
+    <script src="js/external/jquery/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+
+<!--       _________________________________         -->
+
+ <div id="topRibbon" class="topRibbon">
+  
+
+  <center>
+    <table border="0" >
+        <tr>
+            <td> 
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime1" value=""  readonly />
+            </td>
+            
+            <td>    
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime2" value=""  readonly />
+            </td>
+            
+            <td> 
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime3" value=""  readonly />  
+            </td>
+            
+            <td>   
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime4" value=""  readonly />
+            </td>
+        </tr>
+    
+        <tr>
+            <td>  
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime5" value=""  readonly />        
+            </td>
+            <td> 
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime6" value=""  readonly />
+            </td>
+            <td>  
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime7" value=""  readonly />        
+            </td>
+            <td>   
+                <input  style="width:85px;height:20px" class="time" type="text" id="txtTime8" value=""  readonly />  
+            </td>
+        </tr>
+    </table>
+   </center>
+
+
+<button onclick="tabBlueClick()" class="tabclassBlue" style="width:105px;height:30px;top:50px;left:0px;"> Check Status </button>
+<button onclick="tabRedClick()" class="tabclassRed" style="width:140px;height:30px;top:50px;left:105px;"> Cancelled not by Diner </button>
+<button onclick="tabGreenClick()" class="tabclassGreen" style="width:115px;height:30px;top:50px;left:245px;"> Compare 2 Hours </button>
+
+
+
+<div id="panel1" class="panel1">
+
+<table id="table1" border="0" style="visibility:visible">
+    <tr>
+        <td width="20px">
+            
+        </td>
+        <td width="87px">
+           <p id ="Date1" class ="Date1"> Date:</p>
+        </td>
+        <td colspan="3">
+             <input type="date" id="myDate" style="width:145px;">
+        </td>
+        
+    </tr>
+    <!-- ______________________ -->
+    <tr>
+        <td>
+            
+        </td>
+        <td>
+            <p id ="Time1" class ="Time1"> Original ETA:</p>
+        </td>
+        <td>
+            <input  class="time" type="time" id="myTime"  style="width:85px;height:20px" >
+        </td>
+        <td>
+                    <select id="selectTimeZone" >
+                        <option value="Audi" style="color:#006666">HST</option>
+                        <option value="Audi" style="color:#666666">AKDT</option>
+                        <option value="Audi" style="color:#0099ff">PDT</option>
+                        <option value="Audi" style="color:#006600">MST</option>
+                        <option value="Audi" style="color:#00cc00">MDT</option>
+                        <option value="Audi" style="color:#cc9900">CST</option>
+                        <option value="Audi" style="color:#ff9900">CDT</option>
+                        <option value="Audi" style="color:#ff3300">EDT</option>                   
+                    </select>
+
+        </td>
+        <td>
+            <button id="btnPaste1" onclick="fncPaste1()" ><span class="ui-icon ui-icon-clipboard"></span></button>
+            
+        </td>
+    </tr>
+    <!-- ______________________ -->
+    <tr>
+        <td>
+            
+        </td>
+        <td colspan="4">
+            
+     
+    
+    <input onclick="fncChangeCheck()" type="checkbox" name="checkbox-1" id="checkbox-1">
+    <label for="checkbox-1">Add 2nd hour</label>
+
+        </td>
+     
+    </tr>
+
+
+</table>
+
+
+
+
+
+<table id="table2" border="0" style="visibility:hidden">
+<tr>
+    <td width="20px">
+        
+    </td>
+    <td width="87px">
+           <p id ="Date2" class ="Date2"> Date:</p>
+    </td>
+    <td colspan="2" >
+       <input type="date" id="myDate3" style="width:145px;" >
+    </td>
+    
+</tr>
+
+<tr>
+    <td>
+        
+    </td>
+    <td>
+                   <p id ="Time2" class ="Time2"> Fulfilled at:</p>
+
+    </td>
+    <td width="70px">
+        <input  class="time" type="time" id="myTime3"  style="width:85px;height:20px" >
+    </td>
+    <td>
+        <button id="btnPaste2" onclick="fncPaste2()"><span class="ui-icon ui-icon-clipboard"></span></button>
+    </td>
+</tr>
+</table>
+
+<button id="btnCompare" onclick="calcDifference()" style="position:fixed;width:360px;height:30px;top:168px;left:0px;"> Compare to Now </button>
+     
+<input  style="position:fixed;top:350px;width:360px;height:20px" class="time" type="text" id="txtDiff" value="" placeholder="Time Difference" readonly />  
+
+<p style="color:white" class="other" id="demo" ></p>
+
+<br><br>
+<input  id="txtPaste1" type="text"  style=" position:fixed;top:112px;left:119px;height:20px;width:150px;visibility:hidden;" >
+<input id="txtPaste2" type="text" placeholder="Sat, Feb 29 @ 9:14 pm EST" style=" position:fixed;top:190px;left:119px;height:20px;width:85px;visibility:hidden;">
+
+
+
+                
+     
+                    
+
+</div>
+
+
+       
+
+                       
+
+                     
+
+                      
+
+                       
+
+                      
+
+                     
+</div>
+
+
+
+<!--       _________________________________         -->
+
+
+
+
+
+             <div class="divTime" id="divTime">
+                <center>
+                  Select Time:
+                    <br>
+                    <select id="selectTimeType" onchange="fncChange()"  style="width:110px;">
+                        <option value="Audi">Original ETA</option>
+                        <option value="Audi">Placed @</option>
+                        <option value="Audi">Compare 2 hours</option>
+                    </select>
+                </center>
+
+
+
+
+
+
+            </div>
+
+
+
+            <div class="divTime2"  id="divTime2">
+                <center>
+                    <p class="other2">Date 1:</p>
+                    <input type="date" id="myDate2" style="width:145px;" >
+                    <p class="other2">Time 1:</p>
+                    <input  class="time" type="time" id="myTime2"  style="width:85px;height:20px" >
+                    <hr>
+                    <p class="other2">Date 2:</p>
+
+                    <p class="other2">Time 2:</p>
+                </center>
+            </div>
+
+            <div class="divTime3"  id="divTime3">
+                <center>
+                  
+                   
+                </center>
+            </div>
+
+            <div class="divTime4"  id="divTime4">
+                <center>
+                  
+                     
+                        <hr>
+                                             
+                </center>
+            </div>
+
+
+
+
+        <script>
+var BoxChecked = false; 
+var PanelSelected = 1;
+
+var PasteVisible1=false;
+var PasteVisible2=false;
+
+        window.setInterval(function(){
+          myUpdate();
+        }, 1000);
+
+
+
+        function fncOnload()
+        {
+            //Call change of Dropdown
+            fncChange();    
+
+            var date = new Date();
+
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+
+            var today = year + "-" + month + "-" + day;       
+            document.getElementById("myDate").value = today;
+            document.getElementById("myDate2").value = today;
+            document.getElementById("myDate3").value = today;
+            
+            document.getElementById("myTime").focus();
+            document.getElementById("selectTimeZone").selectedIndex = "7";
+        }
+
+
+   function fncPaste1Change(){
+        /*
+        var txt = document.getElementById("txtPaste1").value;
+
+  
+        var res = txt.split(" ");
+        //res[0] = "Sat,"
+        //res[1] = "Feb"
+        //res[2] = "29"
+        //res[3] = "@"
+        //res[4] = "9:14"
+        //res[5] = "pm"
+        //res[6] = "EST"
+                        
+
+        //Length = 25 
+        //Sat, Feb 29 @ 9:14 pm EST
+        //txt.substring(3,0) = Sat
+        //txt.substring(3,5) = Feb
+        //txt.substring(2,9) = 29
+
+        //txt.substring(1,14) = Feb
+        //txt.substring(3,5) = Feb
+        //txt.substring(3,5) = Feb
+
+
+document.getElementById("txtPaste2").value = txt;
+*/
+    alert("txt");
+   }
+
+
+
+ //  <input type="text" id="input" ondrop="return false" ondragover="return false"/>
+
+
+document.getElementById("txtPaste1").addEventListener("paste", function(e){
+var clipboardData, pastedData;
+// Get pasted data via clipboard API
+clipboardData = e.clipboardData || window.clipboardData;
+pastedData = clipboardData.getData('Text');
+var inputOk = checkInput(pastedData);
+if(!inputOk){
+  e.preventDefault();
+}
+});
+
+document.getElementById("txtPaste1").addEventListener("keypress", function(e){
+ 
+
+  var inputOk = checkInput(e.key);
+  if(!inputOk){
+    e.preventDefault();
+  }
+
+
+});
+
+function checkInput(value){ // HERE MY ONPASTE EVENT
+
+  
+  
+        var res = value.split(" ");
+        //res[0] = "Sat,"
+        //res[1] = "Feb"
+        //res[2] = "29"
+        //res[3] = "@"
+        //res[4] = "9:14"
+        //res[5] = "pm"
+        //res[6] = "EST"
+
+var time_mine = res[4];
+
+if (res[5] =="pm") {
+
+var res2 = time_mine.split(":");
+
+var suma = parseInt(res2[0]) + 12;
+time_mine = suma + ":" + res2[1];
+}
+
+alert(suma);
+//document.getElementById("myTime").value = time_mine;                        
+
+
+
+for (var i = res.length - 1; i >= 0; i--) {
+   // alert(res[i]);
+};
+
+
+return true;
+}
+
+//--------------------------------------------------------------------
+function fncPaste1(){
+
+    if (PasteVisible1) { // hide
+        document.getElementById("txtPaste1").style.visibility= "hidden";
+        PasteVisible1 = false;
+
+    }
+    else  { // show
+        document.getElementById("txtPaste1").style.visibility= "visible";
+        PasteVisible1 = true;
+        document.getElementById("txtPaste1").focus();
+
+    }  
+    
+
+}
+
+function fncPaste2(){
+
+    if (PasteVisible2) { // hide
+        document.getElementById("txtPaste2").style.visibility= "hidden";
+        PasteVisible2 = false;
+    }
+    else  { // show
+        document.getElementById("txtPaste2").style.visibility= "visible";
+        PasteVisible2 = true;
+        document.getElementById("txtPaste2").focus();
+    }  
+    
+
+}
+
+
+
+
+function fncChangeCheck(){
+
+if (BoxChecked) {// hide
+
+    BoxChecked = false;
+
+    document.getElementById("table2").style.visibility= "hidden";
+    document.getElementById("panel1").style.height = "88px";
+
+    document.getElementById("btnCompare").style.top ="168px";
+
+document.getElementById("btnCompare").innerHTML = "Compare to Now";
+
+
+  PasteVisible2 = false;
+        document.getElementById("txtPaste2").style.visibility= "hidden";
+
+
+//    alert(document.getElementById("btnCompare").style.top  );
+
+}
+else{ // show
+
+    BoxChecked = true;
+
+    document.getElementById("table2").style.visibility= "visible";
+
+
+    document.getElementById("panel1").style.height = "150px";
+
+    document.getElementById("btnCompare").style.top ="230px";
+
+      document.getElementById("btnCompare").innerHTML = "Compare to New";       
+
+
+document.getElementById("myTime3").focus(); 
+
+
+    //document.getElementById("panel1").style.visibility= "visible";
+
+}
+
+
+
+}
+
+        function tabGreenClick(){
+                document.getElementById("panel1").style.backgroundImage= "-webkit-linear-gradient(top, #00b300, #66ff66)";
+ document.getElementById("Date1").innerHTML = "Date 1:";
+ document.getElementById("Time1").innerHTML = "Time 1:";
+
+ document.getElementById("Date2").innerHTML = "Date 2:";
+ document.getElementById("Time2").innerHTML = "Time 2:";            
+        
+PanelSelected=3;
+        }
+        
+
+        function tabBlueClick(){
+                document.getElementById("panel1").style.backgroundImage= "-webkit-linear-gradient(top, #0059b3, #66b3ff)";
+
+ document.getElementById("Date1").innerHTML = "Date:";
+ document.getElementById("Time1").innerHTML = "Original ETA:";
+
+ document.getElementById("Date2").innerHTML = "Date:";
+ document.getElementById("Time2").innerHTML = "Fulfilled at:";            
+        
+            PanelSelected=1;
+        }
+        
+
+        function tabRedClick(){
+                  document.getElementById("panel1").style.backgroundImage= "-webkit-linear-gradient(top, #b30000, #ff6666)";
+
+ document.getElementById("Date1").innerHTML = "Date:";
+ document.getElementById("Time1").innerHTML = "Placed at:";
+
+ document.getElementById("Date2").innerHTML = "Date:";
+ document.getElementById("Time2").innerHTML = "Cancelled at:";       
+
+ PanelSelected=2;     
+
+
+        }
+
+
+
+        function fncChange()
+        {
+            var indexTypeType = document.getElementById("selectTimeType").selectedIndex
+
+            var measure1 = document.getElementById('divTime').offsetHeight;
+            var measure2 = document.getElementById('divTime2').offsetHeight;
+            var measure3 = document.getElementById('divTime3').offsetHeight;
+            var measure4 = document.getElementById('divTime4').offsetHeight;
+
+            if (indexTypeType == 0 ) {
+
+                //Change Color
+                  document.getElementById("divTime").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+                  document.getElementById("divTime3").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+                  document.getElementById("divTime4").style.backgroundImage= "-webkit-linear-gradient(top, #0080ff, #b3d9ff)";
+
+              //  document.getElementById("divTime3").style.backgroundImage= "-webkit-linear-gradient(top, #1ac600, #ffecff)";                     
+              
+
+
+//
+                document.getElementById("divTime2").style.visibility= "hidden";    
+                document.getElementById("divTime3").style.visibility= "hidden";    
+                document.getElementById("divTime4").style.visibility= "hidden";    
+
+                document.getElementById("divTime3").style.visibility= "visible";    
+                document.getElementById("divTime4").style.visibility= "visible";    
+
+                document.getElementById("divTime3").style.left = "700px";
+                document.getElementById("divTime3").style.top =measure1;
+
+                document.getElementById("divTime4").style.left = "700px";
+                document.getElementById("divTime4").style.top = parseInt(measure1) + parseInt(measure3) ;
+
+                document.getElementById("myTime").focus();    
+            }
+            else if(indexTypeType == 1){
+
+                  document.getElementById("divTime").style.backgroundImage= "-webkit-linear-gradient(top, #ff0000, #ffb3b3)";
+                  document.getElementById("divTime3").style.backgroundImage= "-webkit-linear-gradient(top, #ff0000, #ffb3b3)";
+                  document.getElementById("divTime4").style.backgroundImage= "-webkit-linear-gradient(top, #ff0000, #ffb3b3)";
+
+
+
+
+                document.getElementById("divTime2").style.visibility= "hidden";    
+                document.getElementById("divTime3").style.visibility= "hidden";    
+                document.getElementById("divTime4").style.visibility= "hidden";    
+
+                document.getElementById("divTime3").style.visibility= "visible";    
+                document.getElementById("divTime4").style.visibility= "visible";    
+
+                document.getElementById("divTime3").style.left = "700px";
+                document.getElementById("divTime3").style.top = measure1
+
+                document.getElementById("divTime4").style.left = "700px";
+                document.getElementById("divTime4").style.top = parseInt(measure1) + parseInt(measure3) ;
+
+                document.getElementById("myTime").focus();    
+            }
+            else if (indexTypeType == 2) 
+            {
+
+                  document.getElementById("divTime").style.backgroundImage= "-webkit-linear-gradient(top, #1a8000, #b6feb4)";
+                  document.getElementById("divTime3").style.backgroundImage= "-webkit-linear-gradient(top, #1a8000, #b6feb4)";
+                  document.getElementById("divTime4").style.backgroundImage= "-webkit-linear-gradient(top, #1a8000, #b6feb4)";
+                  document.getElementById("divTime2").style.backgroundImage= "-webkit-linear-gradient(top, #1a8000, #b6feb4)";
+
+
+                
+
+
+                document.getElementById("divTime2").style.visibility= "hidden";    
+                document.getElementById("divTime3").style.visibility= "hidden";    
+                document.getElementById("divTime4").style.visibility= "hidden";   
+
+                document.getElementById("divTime2").style.visibility= "visible";    
+                document.getElementById("divTime4").style.visibility= "visible"; 
+
+                document.getElementById("divTime2").style.left = "700px";
+                document.getElementById("divTime2").style.top = measure1;
+
+                document.getElementById("divTime4").style.left = "700px";
+                document.getElementById("divTime4").style.top = parseInt(measure1) + parseInt(measure2);
+
+                document.getElementById("myTime2").focus();    
+            }
+        }
+
+
+        function calcDifference()
+        {
+
+            document.getElementById("demo").innerHTML = "";
+
+            // index of Time Type
+            var indexTypeType = document.getElementById("selectTimeType").selectedIndex
+
+
+            if (indexTypeType == 0 || indexTypeType == 1 )  // 0 | 1
+            {
+          
+                // index of Time Zone
+                var indexTimeZone = document.getElementById("selectTimeZone").selectedIndex;
+
+                //Split the 
+                //  00:00   -  23.59 
+                var dateONE = document.getElementById("myTime").value;
+                //  12:00 am HST  - 11:59 pm HST
+                var dateTWO = document.getElementById("txtTime" + (parseInt(indexTimeZone) +1) ).value;
+
+                //                                  0  1 
+                var temp1 = dateONE.split(":"); // [15,30]
+                //temp1[0] = 15   |  temp1[1] = 30
+
+
+                //                                  0   1     
+                var temp2 = dateTWO.split(":"); // [04,11 pm HST]
+                                                   //  0  1  2     
+                var temp2_1 = temp2[1].split(" "); // [11,pm,HST]
+
+                //temp2[0] = 04  |  temp2_1[0] = 11 | temp2_1[1] = pm
+
+
+                //base on temp2
+                var HOUR_AM_PM ;
+
+                //    pm
+                if (temp2_1[1] == "pm") 
+                {
+                    //                              4                                
+                    HOUR_AM_PM = parseInt(temp2[0]) + 12;
+
+                    if (HOUR_AM_PM.length == 1) 
+                    {
+
+                        HOUR_AM_PM = "0" + HOUR_AM_PM; 
+                    }
+                }
+                else //am
+                {
+                    HOUR_AM_PM = temp2[0];
+                    // If 12 am = 00 hour
+                    if (HOUR_AM_PM == 12) 
+                    {
+                        HOUR_AM_PM = "00";
+                    }
+                }
+
+                //strings
+                var strMilHour1 = temp1[0];
+                var strMilHour2 = HOUR_AM_PM;
+
+                //ints
+                var theTime1 = parseInt(temp1[0])
+                var theTime2 = parseInt(HOUR_AM_PM)
+
+                //DATES 2
+                var date = [];
+
+                date[0] = moment().tz('Pacific/Honolulu').format("YYYY-MM-DD");
+                date[1] = moment().tz('America/Anchorage').format("YYYY-MM-DD");   //
+                date[2] = moment().tz('America/Los_Angeles').format("YYYY-MM-DD");   //
+                date[3] = moment().tz('America/Phoenix').format("YYYY-MM-DD");   //
+                date[4] = moment().tz('America/Denver').format("YYYY-MM-DD");   //
+                date[5] = moment().tz('America/Tegucigalpa').format("YYYY-MM-DD");   //
+                date[6] = moment().tz('America/Chicago').format("YYYY-MM-DD");   //
+                date[7] = moment().tz('America/New_York').format("YYYY-MM-DD");   //
+
+                var dateStr2 ;
+
+                dateStr2 =  date[indexTimeZone] + " " +  strMilHour2 + ":" + temp2_1[0]+ ":00";
+
+                var dateStr1 = document.getElementById("myDate").value + " " + dateONE;
+             
+                var date1 = moment( dateStr1 );
+                var date2 = moment( dateStr2 );
+
+                differenceInMs = date2.diff(date1); // diff yields milliseconds
+
+                duration = moment.duration(differenceInMs); 
+
+                // THISONE UP 
+                differenceInMinutes = duration.asMinutes(); // if you would like to have the output 559
+
+
+                var x = duration;
+
+                //PT24H // Late: 1 day
+                
+                //P0D  //Same hour and minute
+                
+                //PT1M  // Late: 1 minute
+                //PT1H  //Late: 1 hour
+                //PT1H1M  //Late: 1 hour and 1 minute
+
+                //-PT1H // On_Time: 1 hour
+                //-PT1M // On_Time: 1 minute
+                //-PT1H1M  //On_Time 1 hour and 1 minute
+
+                w = x.toString();
+                
+                z =  x.toString();
+
+                var h = "0";
+                var m = "0";
+
+                var y = "";
+
+                if (w == "P0D")  // Same Time
+                {
+                    y = "Same Time 'Late'";
+
+                    // if Original ETA
+                    if (indexTypeType == 0) 
+                    {
+                        document.getElementById("demo").innerHTML =   "Concession if Late: $0";
+
+                    }
+                    else if (indexTypeType == 1) //If Placed @
+                    {
+                        document.getElementById("demo").innerHTML = "Concession if Cancelled: $0";
+                    }
+                }
+                else if(w.charAt(0) == "-") // On_Time
+                { 
+                    w = w.replace("-", ""); 
+                    w = w.replace("M", " M ");  
+                    w = w.replace("H", " H ");
+                    w = w.replace("PT", "");
+
+                    y = "On Time by " + w;
+                }
+                else if(w.charAt(0) == "P")// LATE
+                {   
+                    
+                    // contains H
+                    //z = PT1H1M
+                    var charIndex = 1;
+                    var charIndex2;
+
+                    if (z.includes("H")) 
+                    {
+                        charIndex = z.indexOf("H"); 
+                        h = z.substring(2, charIndex);
+                    }
+                    if (z.includes("M")) 
+                    {
+                        charIndex2 = z.indexOf("M"); 
+                        m = z.substring(charIndex + 1, charIndex2);
+                    }
+
+                    // how many minutes late
+                    var totalMinutes = (parseInt(h) * 60 ) + parseInt(m) ;
+
+                    var CancelledCons;
+
+                    if (totalMinutes <= 10) 
+                    {
+                        CancelledCons = "$0";
+                    }
+                    else if (totalMinutes <= 20) 
+                    {
+                        CancelledCons = "$5";
+                    }
+                    else if (totalMinutes <= 30)
+                    {
+                        CancelledCons = "$10";
+                    }
+                    else
+                    {
+                        CancelledCons = "[Full value of order] up $25";
+                    }
+
+                    var LateCons;
+                
+                    if (totalMinutes <= 15) 
+                    {
+                        LateCons = "0";
+                    }
+                    else if (totalMinutes <= 45)
+                    {
+                        LateCons = "5";
+                    }
+                    else
+                    {
+                        LateCons = "10";
+                    }
+
+
+                    // if Original ETA
+                    if (indexTypeType == 0) 
+                    {
+                        document.getElementById("demo").innerHTML =   "Concession if Late: $" + LateCons;
+                    }
+                    else if (indexTypeType == 1) //If Placed @
+                    {
+                        document.getElementById("demo").innerHTML = "Concession if Cancelled: " + CancelledCons;
+                    }
+
+                    w = w.replace("M", " M ");  
+                    w = w.replace("H", " H ");
+                    w = w.replace("PT", "");
+
+                    y = "Late by " + w;
+                }
+                document.getElementById("txtDiff").value = y ;
+            }
+            else // 2
+            { 
+                calcDifference2();
+            }
+        }
+
+        function calcDifference2()
+        {
+            document.getElementById("demo").innerHTML = "";
+
+            //Split the 
+            //  00:00   -  23.59 
+            var dateONE = document.getElementById("myTime2").value;
+            //  12:00 am HST  - 11:59 pm HST
+            var dateTWO = document.getElementById("myTime3").value;
+
+            var dateStr1 = document.getElementById("myDate2").value + " " + dateONE;
+ 
+            var dateStr2 = document.getElementById("myDate3").value + " " + dateTWO;
+ 
+            //DATES 
+            var date1 = moment( dateStr1 );
+            var date2 = moment( dateStr2 );
+
+            differenceInMs = date2.diff(date1); // diff yields milliseconds
+
+            duration = moment.duration(differenceInMs); 
+
+            // THISONE UP 
+            differenceInMinutes = duration.asMinutes(); // if you would like to have the output 559
+
+            var x = duration;
+
+            w = x.toString();
+        
+            z =  x.toString();
+
+            var h = "0";
+            var m = "0";
+
+            var y = "";
+
+            if (w == "P0D")  // Same Time
+            {
+                y = "Same Time 'Late'";
+    
+                // if Original ETA
+                if (indexTypeType == 0) 
+                {
+                    document.getElementById("demo").innerHTML =   "Concession if Late: $0";
+                }
+                else if (indexTypeType == 1) //If Placed @
+                {
+                    document.getElementById("demo").innerHTML = "Concession if Cancelled: $5";
+                }
+            }
+            else if(w.charAt(0) == "-") // On_Time
+            { 
+
+                w = w.replace("-", ""); 
+                w = w.replace("M", " M ");  
+                w = w.replace("H", " H ");
+                w = w.replace("PT", "");
+
+                y = "On Time by " + w;
+            }
+            else if(w.charAt(0) == "P") // LATE
+            {
+
+                // contains H
+                //z = PT1H1M
+                var charIndex = 1;
+                var charIndex2;
+
+                if (z.includes("H")) 
+                {
+                    charIndex = z.indexOf("H"); 
+                    h = z.substring(2, charIndex);
+                }
+
+                if (z.includes("M")) 
+                {
+                    charIndex2 = z.indexOf("M"); 
+                m = z.substring(charIndex + 1, charIndex2);
+                }
+
+                // how many minutes late
+                var totalMinutes = (parseInt(h) * 60 ) + parseInt(m) ;
+
+                var CancelledCons;
+                if (totalMinutes <= 20) 
+                {
+                    CancelledCons = "$5";
+                }
+                else if (totalMinutes <= 30)
+                {
+                    CancelledCons = "$10";
+                }
+                else
+                {
+                    CancelledCons = "Full value of order up $25";
+                }
+
+                var LateCons;
+            
+                if (totalMinutes <= 15) 
+                {
+                    LateCons = "0";
+                }
+                else if (totalMinutes <= 45)
+                {
+                    LateCons = "5";
+                }
+                else
+                {
+                    LateCons = "10";
+                }
+
+                w = w.replace("M", " M ");  
+                w = w.replace("H", " H ");
+                w = w.replace("PT", "");
+
+                y = "Late by " + w;
+            }
+            
+            document.getElementById("txtDiff").value = y ;
+        }
+
+        function myUpdate() 
+        {
+
+            //format("YYYY-MM-DD");   
+            var time1 = moment().tz('Pacific/Honolulu').format("hh:mm a z");
+            var time2 = moment().tz('America/Anchorage').format("hh:mm a z");   //
+            var time3 = moment().tz('America/Los_Angeles').format("hh:mm a z");   //
+            var time4 = moment().tz('America/Phoenix').format("hh:mm a z");   //
+            var time5 = moment().tz('America/Denver').format("hh:mm a z");   //
+            var time6 = moment().tz('America/Tegucigalpa').format("hh:mm a z");   //
+            var time7 = moment().tz('America/Chicago').format("hh:mm a z");   //
+            var time8 = moment().tz('America/New_York').format("hh:mm a z");   //
+
+            /*
+            Pacific/Honolulu
+            HST
+            America/Anchorage
+            AKDT
+            America/Los_Angeles
+            PDT
+            America/Phoenix
+            MST
+            America/Salt_Lake_City
+            MDT
+            America/Tegucigalpa
+            CST
+            America/Chicago
+            CDT
+            America/New_York
+            EDT
+            */
+
+           document.getElementById("txtTime1").value = time1  ;
+           document.getElementById("txtTime2").value = time2  ;
+           document.getElementById("txtTime3").value = time3  ;
+           document.getElementById("txtTime4").value = time4  ;
+           document.getElementById("txtTime5").value = time5  ;
+           document.getElementById("txtTime6").value = time6  ;
+           document.getElementById("txtTime7").value = time7  ;
+           document.getElementById("txtTime8").value = time8  ;
+        }
+
+       
+       
+        </script>
+    </body>
+</html>
